@@ -174,8 +174,8 @@ const SITE_CONFIG = {
   authorName: "Tanuj Darokar",
   authorBio: "Crafting fast, beautiful, and AI-powered mobile experiences with Flutter & Dart.",
   githubUrl: "https://github.com/Tanujdarokar",
-  linkedinUrl: "https://linkedin.com",
+  linkedinUrl: "https://www.linkedin.com/in/tanuj-darokar/",
   twitterUrl: "https://x.com",
-  email: "hello@flutterstudio.dev",
+  email: "tanujdarokar@gmail.com",
   repoUrl: "https://github.com/Tanujdarokar"
 };
