@@ -260,6 +260,34 @@ const APPS_DATA = [
     ]
   },
   {
+    id: "carbon-footprint",
+    name: "Carbon Foot Print",
+    tagline: "A carbon awareness app for tracking emissions, smart sustainability goals, and eco daily actions.",
+    category: "Sustainability",
+    icon: "assets/icons/ai-study-assist.svg",
+    version: "v1.0.0",
+    updatedDate: "Sep 11, 2026",
+    size: "24.6 MB",
+    minAndroid: "Android 8.0+ (Oreo)",
+    apkUrl: "https://github.com/Tanujdarokar/carbonFootPrint/releases/download/v1.0.0/carbonFootPrint-v1.0.0.apk",
+    githubUrl: "https://github.com/Tanujdarokar/carbonFootPrint",
+    featured: false,
+    description: "Carbon Foot Print is a sustainability-focused mobile experience designed to help people understand their personal environmental impact through daily activity, emissions awareness, and greener lifestyle choices.",
+    features: [
+      "🌍 Carbon impact and sustainability dashboard",
+      "📉 Emission tracking and activity awareness",
+      "🌱 Eco-friendly habit recommendations",
+      "📊 Daily impact summary and goal planning",
+      "♻️ Green lifestyle and footprint improvement flow"
+    ],
+    screenshots: [],
+    changelog: [
+      "Carbon Foot Print project added to the showcase",
+      "Sustainability workflow and impact dashboard included",
+      "Carbon awareness project added with direct APK metadata"
+    ]
+  },
+  {
     id: "smart-management-web",
     name: "Smart Management Web",
     tagline: "A smart web dashboard for management, operations, and business visibility.",
