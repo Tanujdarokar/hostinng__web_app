@@ -166,6 +166,35 @@ const APPS_DATA = [
       "Interview preparation flow and question experience",
       "Career-focused practice and score tracking UI"
     ]
+  },
+  {
+    id: "smart-management-web",
+    name: "Smart Management Web",
+    tagline: "A smart web dashboard for management, operations, and business visibility.",
+    category: "Web",
+    icon: "assets/icons/ai-study-assist.svg",
+    version: "v1.0.0",
+    updatedDate: "Sep 11, 2026",
+    size: "Web App",
+    minAndroid: "Web App",
+    apkUrl: "",
+    githubUrl: "https://github.com/Tanujdarokar/smart_management_web",
+    websiteUrl: "https://tanujdarokar.github.io/smart_management_web/",
+    featured: false,
+    description: "Smart Management Web is a management dashboard project for business operations, workflow visibility, and smarter planning. The site presents a polished web experience for monitoring tasks, processes, and project coordination in a modern management workflow.",
+    features: [
+      "📊 Management dashboard interface",
+      "🌐 Smart web experience for business workflows",
+      "⚙️ Organized operations and activity visibility",
+      "📈 Reporting and planning dashboard layout",
+      "💼 Modern workflow coordination experience"
+    ],
+    screenshots: [],
+    changelog: [
+      "Smart Management Web project added to the showcase",
+      "Website project linked with GitHub Pages",
+      "Web dashboard project added to the app catalog"
+    ]
   }
 ];
 

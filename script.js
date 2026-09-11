@@ -191,6 +191,33 @@ document.addEventListener("DOMContentLoaded", () => {
       ? `<div class="card-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>` 
       : "";
 
+    const downloadHtml = app.apkUrl ? `
+      <a 
+        href="${app.apkUrl}" 
+        class="btn-primary card-download-trigger" 
+        download
+        data-app-name="${app.name}"
+        data-app-apk="${app.apkUrl}"
+        title="Direct APK Download"
+      >
+        <i class="fa-solid fa-download"></i>
+        <span>Download APK</span>
+      </a>
+    ` : "";
+
+    const websiteHtml = app.websiteUrl ? `
+      <a 
+        href="${app.websiteUrl}" 
+        class="btn-secondary card-website-trigger" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        title="Open Website"
+      >
+        <i class="fa-solid fa-globe"></i>
+        <span>Website</span>
+      </a>
+    ` : "";
+
     card.innerHTML = `
       ${featuredBadgeHtml}
       <div>
@@ -218,17 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="card-actions">
-        <a 
-          href="${app.apkUrl}" 
-          class="btn-primary card-download-trigger" 
-          download
-          data-app-name="${app.name}"
-          data-app-apk="${app.apkUrl}"
-          title="Direct APK Download"
-        >
-          <i class="fa-solid fa-download"></i>
-          <span>Download APK</span>
-        </a>
+        ${downloadHtml}
+        ${websiteHtml}
         <button 
           class="btn-secondary btn-icon-only card-view-details" 
           title="View Screenshots & Changelog"
@@ -247,6 +265,11 @@ document.addEventListener("DOMContentLoaded", () => {
         handleDownloadClick(app.name, app.apkUrl);
         return;
       }
+
+      if (e.target.closest(".card-website-trigger")) {
+        return;
+      }
+
       openAppModal(app);
     });
 
@@ -355,17 +378,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalDownloadBtn = document.getElementById("modal-download-btn");
     const modalFooterDownloadBtn = document.getElementById("modal-footer-download-btn");
     const modalDownloadSize = document.getElementById("modal-download-size");
+    const modalWebsiteBtn = document.getElementById("modal-website-btn");
+    const modalFooterWebsiteBtn = document.getElementById("modal-footer-website-btn");
 
     if (modalDownloadBtn) {
-      modalDownloadBtn.href = app.apkUrl;
-      modalDownloadBtn.onclick = () => handleDownloadClick(app.name, app.apkUrl);
+      if (app.apkUrl) {
+        modalDownloadBtn.href = app.apkUrl;
+        modalDownloadBtn.classList.remove("hidden");
+        modalDownloadBtn.onclick = () => handleDownloadClick(app.name, app.apkUrl);
+      } else {
+        modalDownloadBtn.classList.add("hidden");
+      }
     }
     if (modalFooterDownloadBtn) {
-      modalFooterDownloadBtn.href = app.apkUrl;
-      modalFooterDownloadBtn.onclick = () => handleDownloadClick(app.name, app.apkUrl);
+      if (app.apkUrl) {
+        modalFooterDownloadBtn.href = app.apkUrl;
+        modalFooterDownloadBtn.classList.remove("hidden");
+        modalFooterDownloadBtn.onclick = () => handleDownloadClick(app.name, app.apkUrl);
+      } else {
+        modalFooterDownloadBtn.classList.add("hidden");
+      }
     }
     if (modalDownloadSize) {
       modalDownloadSize.textContent = app.size || "";
+    }
+
+    if (modalWebsiteBtn) {
+      if (app.websiteUrl) {
+        modalWebsiteBtn.href = app.websiteUrl;
+        modalWebsiteBtn.classList.remove("hidden");
+      } else {
+        modalWebsiteBtn.classList.add("hidden");
+      }
+    }
+
+    if (modalFooterWebsiteBtn) {
+      if (app.websiteUrl) {
+        modalFooterWebsiteBtn.href = app.websiteUrl;
+        modalFooterWebsiteBtn.classList.remove("hidden");
+      } else {
+        modalFooterWebsiteBtn.classList.add("hidden");
+      }
     }
 
     // GitHub repository link
