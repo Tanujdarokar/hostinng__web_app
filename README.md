@@ -1,21 +1,32 @@
-# TS-AppStack — APK Showcase Website
+# AppSphere — APK Showcase Website
 
-A static portfolio and APK showcase website for publishing independent Flutter and Dart mobile apps. The site presents app cards, category filters, search, direct APK download links, app details, screenshots, and a guide for sideloading APK files on Android.
+AppSphere is a static portfolio and app marketplace website for showcasing independent Android, AI, Flutter, and web projects. The current implementation uses HTML, CSS, and JavaScript with a data-driven catalog defined in `apps-data.js`.
 
-## Project Overview
+## Current Project Status
 
-This project is a mobile application showcase website built with HTML, CSS, JavaScript, and static asset data. It is designed for GitHub Pages or any static web hosting environment and is intended to present multiple Flutter-built applications in a clean product-market-store style.
+The repository currently presents a public-facing product website with:
 
-## What This Website Includes
+- A hero section and app-market based brand layout
+- A login/register panel and workspace style UX
+- An APK sideloading banner and install guide flow
+- A searchable and filterable app catalog
+- App detail modals with screenshots and changelog sections
+- Dark/light theme switching
+- Download and GitHub/website action links for each project
 
-- App catalog with cards and app metadata
-- Category tab filters
-- Live search by title, tagline, category, description, and feature keywords
-- App detail modal with screenshots and changelog
-- APK download CTA links
-- Sideloading installation guide modal
-- Theme toggle with dark/light mode
-- Repository listing UI for the developer profile
+## Available Showcase Apps
+
+The current catalog in `apps-data.js` includes the following projects:
+
+- AI Study Assist
+- Women SOS
+- Talent Match AI
+- Interview Pro
+- Login Signup Clone
+- E-commerce
+- AI Face Assistant
+- Carbon Foot Print
+- Smart Management Web
 
 ## Tech Stack
 
@@ -24,42 +35,36 @@ This project is a mobile application showcase website built with HTML, CSS, Java
 - JavaScript
 - Font Awesome icons
 - Google Fonts
-- Static file assets stored in the local project folders
+- Local project assets and screenshots
 
 ## Project Structure
 
 ```text
 .
-├── index.html              # Main website markup and layout
-├── style.css               # Full styling and responsive design system
-├── script.js               # UI rendering, search, filters, modals, lightbox, and theme logic
-├── apps-data.js            # App catalog and site configuration data
-├── assets/                 # Project screenshots, icons, and app media
+├── index.html              # Main markup and website layout
+├── style.css               # Full website styling and responsive design
+├── script.js               # Rendering, filters, search, theme toggle, and modal logic
+├── apps-data.js            # App catalog, site configuration and project metadata
+├── assets/                 # Screenshots, icons, logos, and project media
 └── README.md               # Project documentation
 ```
 
 ## Local Run
 
-You can run the project locally by opening the `index.html` file in a browser, or by serving the folder with a simple static web server.
-
-Example:
+You can run this static site locally by opening `index.html` directly in a browser, or by serving the workspace with a local HTTP server:
 
 ```powershell
 cd c:\Users\tanuj\Desktop\hosting website
 python -m http.server 8000
 ```
 
-Then open:
+Then visit:
 
 http://localhost:8000
 
-## Assets and Copyright Notice
+## Notes
 
-This project uses local project assets, screenshots, icons, and app metadata stored in the repository. External assets such as Google Fonts, Font Awesome, and remote preview images are used only as website styling and visual references. Please ensure that all images, screenshots, logos, APK files, and project assets you publish in this repository belong to you or carry the correct license before pushing to GitHub.
-
-## License
-
-This project is currently published as a portfolio/showcase website without a separate public license file. If you intend to publish it publicly, add an appropriate license such as MIT or Apache-2.0 and keep the repository license consistent with your selected app/assets sources.
+This project is designed as a static portfolio-style APK and web showcase. App metadata, screenshots, project descriptions, project categories, download URLs, and website URLs are centrally stored in `apps-data.js`.
 
 ## Author
 
