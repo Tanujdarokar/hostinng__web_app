@@ -168,6 +168,70 @@ const APPS_DATA = [
     ]
   },
   {
+    id: "login-signup-clone",
+    name: "Login Signup Clone",
+    tagline: "A polished login and signup UI experience with responsive authentication screens.",
+    category: "Web",
+    icon: "assets/icons/ai-study-assist.svg",
+    version: "v1.0.0",
+    updatedDate: "Sep 11, 2026",
+    size: "Web App",
+    minAndroid: "Web App",
+    apkUrl: "",
+    githubUrl: "https://github.com/Tanujdarokar/login_signup_clone",
+    websiteUrl: "https://tanujdarokar.github.io/login_signup_clone/",
+    featured: false,
+    description: "Login Signup Clone is a clean authentication UI project showcasing a responsive login and signup experience with modern web form structure, smooth visual hierarchy, and polished page styling for a public-facing landing experience.",
+    features: [
+      "🔐 Login and signup experience",
+      "🌐 Responsive web authentication UI",
+      "💼 Modern form layout and visual polish",
+      "📱 Mobile-friendly design structure",
+      "⚙️ Frontend UI project for authentication workflows"
+    ],
+    screenshots: [],
+    changelog: [
+      "Login Signup Clone project added to the showcase",
+      "Website project linked with GitHub Pages",
+      "Authentication UI clone project added to the app catalog"
+    ]
+  },
+  {
+    id: "e-commerce-flutter-app",
+    name: "E-commerce",
+    tagline: "A clean Flutter shopping experience with product browsing, categories, and order-ready screens.",
+    category: "Shopping",
+    icon: "assets/icons/ai-study-assist.svg",
+    version: "v1.0.0",
+    updatedDate: "Sep 11, 2026",
+    size: "Flutter App",
+    minAndroid: "Android 8.0+",
+    apkUrl: "assets/E-commerce/Screenshot 2026-09-11 102231.png",
+    githubUrl: "https://github.com/Tanujdarokar",
+    featured: false,
+    description: "E-commerce is a Flutter shopping UI experience showcasing product discovery, store categories, visual product cards, cart interactions, and polished commerce flows for a modern online shopping app.",
+    features: [
+      "🛍️ Product browsing and category layout",
+      "📦 Shopping cart and checkout-ready UI",
+      "🎨 Modern Flutter commerce screen design",
+      "📱 Responsive shopping experience",
+      "🌐 App showcase UI for online commerce"
+    ],
+    screenshots: [
+      "assets/E-commerce/Screenshot 2026-09-11 102231.png",
+      "assets/E-commerce/Screenshot 2026-09-11 102256.png",
+      "assets/E-commerce/Screenshot 2026-09-11 102310.png",
+      "assets/E-commerce/Screenshot 2026-09-11 102327.png",
+      "assets/E-commerce/Screenshot 2026-09-11 102338.png",
+      "assets/E-commerce/Screenshot 2026-09-11 102402.png"
+    ],
+    changelog: [
+      "E-commerce Flutter UI showcase added",
+      "Product browsing and sales screen flow included",
+      "Flutter UI screenshots added to the project assets"
+    ]
+  },
+  {
     id: "smart-management-web",
     name: "Smart Management Web",
     tagline: "A smart web dashboard for management, operations, and business visibility.",
