@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO Meta Tags -->
-  <title>Flutter Hub — Independent Flutter Apps &amp; APK Showcase</title>
-  <meta name="title" content="Flutter Hub — Independent Flutter Apps &amp; APK Showcase">
+  <title>AppSphere — Independent Flutter Apps &amp; APK Showcase</title>
+  <meta name="title" content="AppSphere — Independent Flutter Apps &amp; APK Showcase">
   <meta name="description"
     content="Discover and download high-quality, open-source and independent Flutter apps for Android. Direct APK releases, feature overviews, and changelogs.">
   <meta name="keywords"
     content="Flutter, Android APK, Flutter Apps, Direct APK Download, Mobile App Showcase, Open Source Flutter">
-  <meta name="author" content="Flutter Studio">
+  <meta name="author" content="AppSphere">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Flutter Hub — Independent Flutter Apps &amp; APK Showcase">
+  <meta property="og:title" content="AppSphere — Independent Flutter Apps &amp; APK Showcase">
   <meta property="og:description" content="Download direct APK releases of innovative Flutter mobile apps.">
   <meta property="og:image"
     content="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&auto=format&fit=crop&q=80">
@@ -45,18 +45,12 @@
   <!-- Header / Navigation Bar -->
   <header class="site-header" id="site-header">
     <div class="header-container">
-      <a href="#" class="brand-logo" aria-label="Flutter Hub Home">
+      <a href="#" class="brand-logo" aria-label="AppSphere Home">
         <div class="logo-icon-wrap">
-          <svg class="flutter-logo-svg" viewBox="0 0 166 202" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M102.2 0L0 102.2L31.6 133.8L165.4 0H102.2Z" fill="#54C5F8" />
-            <path d="M102.2 99.4L33.7 167.9L65.3 199.5L133.8 131L165.4 99.4H102.2Z" fill="#02569B" />
-            <path d="M65.3 135.6L100.9 171.2L133.8 138.3L99.4 103.9L65.3 135.6Z" fill="#0175C2" />
-            <path d="M133.8 138.3L100.9 171.2L128.8 199.1H165.4L133.8 138.3Z" fill="#02569B" />
-          </svg>
+          <img src="assets/logo/hosting_website_logo.png" alt="AppSphere Logo" class="brand-logo-img" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80';">
         </div>
         <div class="brand-text">
-          <span class="brand-title"><span class="brand-accent">TS-</span>APP<span
-              class="brand-accent">Stack</span></span>
+          <span class="brand-title"><span class="brand-accent">App</span>Sphere</span>
           <span class="brand-badge">APK Market Store</span>
         </div>
       </a>
@@ -112,6 +106,127 @@
           <div class="stat-card">
             <span class="stat-value">Zero</span>
             <span class="stat-label">Ad Trackers</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Login / Register Auth Panel -->
+    <section class="auth-section" id="auth-panel">
+      <div class="auth-container">
+        <div class="auth-intro">
+          <span class="auth-kicker">Member Access</span>
+          <h2 class="auth-title">Welcome to your workspace</h2>
+          <p class="auth-copy">Log in to manage your apps, projects, and product updates. Create a new account when you are ready to publish.</p>
+
+          <div class="auth-feature-list">
+            <div class="auth-feature-item">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Fast project access</span>
+            </div>
+            <div class="auth-feature-item">
+              <i class="fa-solid fa-shield-heart"></i>
+              <span>Safe account workflow</span>
+            </div>
+            <div class="auth-feature-item">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Launch-ready dashboard</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-card">
+          <div class="auth-card-head">
+            <div class="auth-switch" id="auth-switch">
+              <span class="auth-switch-slider" id="auth-switch-slider"></span>
+              <button type="button" class="auth-switch-btn active" id="login-switch" data-auth-mode="login">
+                <span>Login</span>
+              </button>
+              <button type="button" class="auth-switch-btn" id="register-switch" data-auth-mode="register">
+                <span>Register</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-form-stage">
+            <form class="auth-form active" id="login-form">
+              <div class="auth-form-title-row">
+                <h3 class="auth-form-title">Login</h3>
+                <span class="auth-small-label">Welcome back</span>
+              </div>
+
+              <div class="auth-field-group">
+                <label class="auth-label" for="login-email">Email address</label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" id="login-email" class="auth-input" placeholder="name@example.com" required>
+                </div>
+              </div>
+
+              <div class="auth-field-group">
+                <label class="auth-label" for="login-password">Password</label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-lock"></i>
+                  <input type="password" id="login-password" class="auth-input" placeholder="••••••••" required>
+                </div>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="auth-check">
+                  <input type="checkbox">
+                  <span>Remember me</span>
+                </label>
+                <a href="#" class="auth-link">Forgot password?</a>
+              </div>
+
+              <button type="button" class="btn-primary auth-submit-btn">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span>Login to Dashboard</span>
+              </button>
+            </form>
+
+            <form class="auth-form" id="register-form">
+              <div class="auth-form-title-row">
+                <h3 class="auth-form-title">Create account</h3>
+                <span class="auth-small-label">Start free</span>
+              </div>
+
+              <div class="auth-field-group">
+                <label class="auth-label" for="register-name">Full name</label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="register-name" class="auth-input" placeholder="Your name" required>
+                </div>
+              </div>
+
+              <div class="auth-field-group">
+                <label class="auth-label" for="register-email">Email address</label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" id="register-email" class="auth-input" placeholder="name@example.com" required>
+                </div>
+              </div>
+
+              <div class="auth-field-group">
+                <label class="auth-label" for="register-password">Password</label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-lock"></i>
+                  <input type="password" id="register-password" class="auth-input" placeholder="Create a password" required>
+                </div>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="auth-check">
+                  <input type="checkbox">
+                  <span>I agree to terms</span>
+                </label>
+              </div>
+
+              <button type="button" class="btn-primary auth-submit-btn">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Create Account</span>
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -444,7 +559,7 @@
               <path d="M133.8 138.3L100.9 171.2L128.8 199.1H165.4L133.8 138.3Z" fill="#02569B" />
             </svg>
           </div>
-          <span class="footer-brand-title"><span class="brand-accent">TS-</span>APP<span class="brand-accent">Stack</span></span>
+          <span class="footer-brand-title"><span class="brand-accent">App</span>Sphere</span>
           <p class="footer-tagline" id="footer-author-bio">
             Independent mobile applications built with Flutter, Dart, and love for smooth UI.
           </p>
@@ -486,7 +601,7 @@
 
       <div class="footer-bottom">
         <div class="footer-copy">
-          <p>&copy; <span id="current-year">2026</span> <strong id="footer-author-name">Flutter Studio</strong>. Built
+          <p>&copy; <span id="current-year">2026</span> <strong id="footer-author-name">AppSphere</strong>. Built
             for GitHub Pages hosting.</p>
         </div>
         <button type="button" id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to top">

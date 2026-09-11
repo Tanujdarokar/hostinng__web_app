@@ -49,6 +49,40 @@ document.addEventListener("DOMContentLoaded", () => {
   // Toast Container
   const toastContainer = document.getElementById("toast-container");
 
+  // Login/Register auth panel interaction
+  const authSwitch = document.getElementById("auth-switch");
+  const authSwitchSlider = document.getElementById("auth-switch-slider");
+  const authSwitchButtons = Array.from(document.querySelectorAll(".auth-switch-btn"));
+  const authForms = {
+    login: document.getElementById("login-form"),
+    register: document.getElementById("register-form")
+  };
+
+  if (authSwitch && authSwitchSlider && authSwitchButtons.length) {
+    const setAuthMode = (mode) => {
+      const isRegister = mode === "register";
+      authSwitchButtons.forEach(btn => {
+        const isActive = btn.dataset.authMode === mode;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      if (isRegister) {
+        authSwitchSlider.style.transform = "translateX(100%)";
+        authForms.login.classList.remove("active");
+        authForms.register.classList.add("active");
+      } else {
+        authSwitchSlider.style.transform = "translateX(0%)";
+        authForms.register.classList.remove("active");
+        authForms.login.classList.add("active");
+      }
+    };
+
+    authSwitchButtons.forEach(btn => {
+      btn.addEventListener("click", () => setAuthMode(btn.dataset.authMode));
+    });
+  }
+
   const REPOSITORIES = [
     { name: "smart_management_web", language: "JavaScript", color: "yellow", updated: "Updated last week" },
     { name: "tanuj_portfolio", description: "This is my portfolio", language: "HTML", color: "orange", updated: "Updated last week" },
