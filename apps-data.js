@@ -232,6 +232,34 @@ const APPS_DATA = [
     ]
   },
   {
+    id: "ai-face-assistant",
+    name: "AI Face Assistant",
+    tagline: "A face-first AI assistant experience for visual recognition, prompts, and smart guidance.",
+    category: "AI",
+    icon: "assets/icons/ai-study-assist.svg",
+    version: "v1.0.0",
+    updatedDate: "Sep 11, 2026",
+    size: "22.1 MB",
+    minAndroid: "Android 8.0+ (Oreo)",
+    apkUrl: "https://github.com/Tanujdarokar/AI-Face-Assistant/releases/download/v1.0.0/AI-Face-Assistant-v1.0.0.apk",
+    githubUrl: "https://github.com/Tanujdarokar/AI-Face-Assistant",
+    featured: true,
+    description: "AI Face Assistant is a visual AI experience built around face recognition, smart prompts, and interactive guidance for everyday personal assistant workflows. The app is designed to combine user-friendly face experiences with practical AI productivity and assistance features.",
+    features: [
+      "🤖 AI face-based interactive assistant",
+      "📷 Visual recognition and profile matching UI",
+      "⚡ Fast prompt and action assistance",
+      "💬 Guided conversational workflow",
+      "🌎 Smart assistant experience for daily productivity"
+    ],
+    screenshots: [],
+    changelog: [
+      "AI Face Assistant project added to the showcase",
+      "GitHub repository added to the project data",
+      "AI assistant app entry added with download-ready APK metadata"
+    ]
+  },
+  {
     id: "smart-management-web",
     name: "Smart Management Web",
     tagline: "A smart web dashboard for management, operations, and business visibility.",
