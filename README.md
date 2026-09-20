@@ -1,22 +1,24 @@
 # AppSphere — APK Showcase Website
 
-AppSphere is a static portfolio and app marketplace website for showcasing independent Android, AI, Flutter, and web projects. The current implementation uses HTML, CSS, and JavaScript with a data-driven catalog defined in `apps-data.js`.
+AppSphere is a modern static portfolio website for showcasing independent Android, AI, and web projects. The site is built with HTML, CSS, and JavaScript and is powered by a central app catalog in `apps-data.js`.
 
-## Current Project Status
+## Current project status
 
-The repository currently presents a public-facing product website with:
+This repository is a working showcase website with the following features:
 
-- A hero section and app-market based brand layout
-- A login/register panel and workspace style UX
-- An APK sideloading banner and install guide flow
-- A searchable and filterable app catalog
-- App detail modals with screenshots and changelog sections
-- Dark/light theme switching
-- Download and GitHub/website action links for each project
+- Hero section with premium app-store style branding
+- Search and category filtering for the project catalog
+- App cards with metadata, tags, and live quick info
+- App detail modal with description, features, screenshots, and changelog
+- Direct APK/website action links for each project
+- Install guide modal for sideloading APKs on Android
+- Dark/light theme support with smooth UI transitions
+- Animated counters, ambient background effects, and polished scrolling experience
+- GitHub repository showcase section and author profile links
 
-## Available Showcase Apps
+## Featured apps in the current catalog
 
-The current catalog in `apps-data.js` includes the following projects:
+The live catalog currently includes these projects:
 
 - AI Study Assist
 - Women SOS
@@ -28,43 +30,47 @@ The current catalog in `apps-data.js` includes the following projects:
 - Carbon Foot Print
 - Smart Management Web
 
-## Tech Stack
+## Tech stack
 
 - HTML5
 - CSS3
 - JavaScript
-- Font Awesome icons
+- Font Awesome
 - Google Fonts
-- Local project assets and screenshots
+- Local static assets and screenshots
 
-## Project Structure
+## Project structure
 
 ```text
 .
-├── index.html              # Main markup and website layout
-├── style.css               # Full website styling and responsive design
-├── script.js               # Rendering, filters, search, theme toggle, and modal logic
-├── apps-data.js            # App catalog, site configuration and project metadata
-├── assets/                 # Screenshots, icons, logos, and project media
-└── README.md               # Project documentation
+├── index.html              # Main website layout and sections
+├── style.css              # Full responsive styling and motion design
+├── script.js              # Rendering logic, filters, modal UI, theme toggle, animations
+├── apps-data.js           # App metadata, project catalog, site configuration
+├── assets/                # Logos, screenshots, app media, and icons
+├── app/                   # App-related support files
+├── README.md              # Project documentation
+└── .gitignore             # Repository ignores
 ```
 
-## Local Run
+## Run locally
 
-You can run this static site locally by opening `index.html` directly in a browser, or by serving the workspace with a local HTTP server:
+You can preview the site by opening `index.html` directly in a browser, or run it using a local web server:
 
-```powershell
-cd c:\Users\tanuj\Desktop\hosting website
+```bash
+cd "c:\Users\tanuj\Desktop\hosting website"
 python -m http.server 8000
 ```
 
-Then visit:
+Then open:
 
+```text
 http://localhost:8000
+```
 
 ## Notes
 
-This project is designed as a static portfolio-style APK and web showcase. App metadata, screenshots, project descriptions, project categories, download URLs, and website URLs are centrally stored in `apps-data.js`.
+This project is designed as a static showcase platform for mobile apps and web projects. App details, descriptions, screenshots, categories, download links, and website links are managed centrally in `apps-data.js` for easy updates.
 
 ## Author
 
