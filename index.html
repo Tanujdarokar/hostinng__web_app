@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome Icons for polished visuals -->
@@ -38,22 +38,38 @@
 </head>
 
 <body>
-  <!-- Decorative background mesh gradients -->
+  <!-- Interactive Particle Background Canvas -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Decorative ambient aurora glow elements -->
   <div class="ambient-glow glow-1" aria-hidden="true"></div>
   <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
 
   <!-- Header / Navigation Bar -->
   <header class="site-header" id="site-header">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
+
     <div class="header-container">
       <a href="#" class="brand-logo" aria-label="AppSphere Home">
         <div class="logo-icon-wrap">
-          <img src="assets/logo/hosting_website_logo.png" alt="AppSphere Logo" class="brand-logo-img" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80';">
+          <img src="assets/logo/hosting_website_logo.png" alt="AppSphere Logo" class="brand-logo-img"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80';">
+          <span class="logo-glow-ring"></span>
         </div>
         <div class="brand-text">
           <span class="brand-title"><span class="brand-accent">App</span>Sphere</span>
-          <span class="brand-badge">APK Market Store</span>
+          <span class="brand-badge"><i class="fa-solid fa-bolt-lightning"></i> APK Store</span>
         </div>
       </a>
+
+      <nav class="header-nav" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link">Overview</a>
+        <a href="#apps-catalog" class="nav-link">Apps Catalog</a>
+        <a href="#repositories-section" class="nav-link">Repositories</a>
+        <a href="#auth-panel" class="nav-link">Account</a>
+      </nav>
 
       <div class="header-actions">
         <button type="button" id="install-guide-btn" class="nav-action-btn" title="How to install APKs">
@@ -61,13 +77,14 @@
           <span class="btn-text">Install Guide</span>
         </button>
 
-        <a id="github-header-link" href="https://github.com" target="_blank" rel="noopener noreferrer"
+        <a id="github-header-link" href="https://github.com/Tanujdarokar" target="_blank" rel="noopener noreferrer"
           class="nav-icon-btn" title="GitHub Profile" aria-label="GitHub profile">
           <span class="sr-only">GitHub profile</span>
           <i class="fa-brands fa-github"></i>
         </a>
 
-        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode"
+          title="Toggle Theme">
           <i class="fa-solid fa-moon moon-icon"></i>
           <i class="fa-solid fa-sun sun-icon"></i>
         </button>
@@ -76,48 +93,285 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section with 3D Tech Orbit & Live Showcase -->
     <section class="hero-section" id="hero">
-      <div class="hero-content">
-        <div class="hero-tag">
-          <span class="pulse-dot"></span>
-          <span>Crafted with Flutter &amp; Dart</span>
-        </div>
-        <h1 class="hero-title">
-          Direct APKs for <span class="gradient-text">Handcrafted</span> Mobile Experiences
-        </h1>
-        <p class="hero-subtitle">
-          Explore and install standalone Android applications built with modern Flutter architecture. Fast, ad-free,
-          privacy-conscious, and ready for instant sideloading.
-        </p>
+      <div class="hero-container">
+        <div class="hero-content reveal-on-scroll">
+          <div class="hero-tag">
+            <span class="pulse-dot"></span>
+            <span>Crafted with Flutter 3.x &amp; Dart</span>
+            <span class="hero-tag-badge">v2.0 UI</span>
+          </div>
+          <h1 class="hero-title">
+            Direct APKs for <span class="gradient-text animated-gradient">Handcrafted</span> Mobile Experiences
+          </h1>
+          <p class="hero-subtitle">
+            Explore and install standalone Android applications built with modern Flutter architecture. Blazing fast,
+            ad-free, privacy-conscious, and ready for instant sideloading.
+          </p>
 
-        <!-- Quick Stats Bar -->
-        <div class="hero-stats">
-          <div class="stat-card">
-            <span class="stat-value" id="stat-apps-count">0</span>
-            <span class="stat-label">Showcased Apps</span>
+          <div class="hero-cta-group">
+            <a href="#apps-catalog" class="btn-primary hero-btn-main">
+              <i class="fa-solid fa-compass"></i>
+              <span>Explore Applications</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <button type="button" id="hero-guide-btn" class="btn-secondary hero-btn-secondary">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Sideload Guide</span>
+            </button>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat-card">
-            <span class="stat-value">100%</span>
-            <span class="stat-label">Direct APKs</span>
+
+          <!-- Quick Stats Bar with Counter Animation -->
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-value-wrap">
+                <span class="stat-value count-up" data-target="8" id="stat-apps-count">8</span>
+                <span class="stat-plus">+</span>
+              </div>
+              <span class="stat-label">Showcased Apps</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <div class="stat-value-wrap">
+                <span class="stat-value count-up" data-target="100">100</span>
+                <span class="stat-percent">%</span>
+              </div>
+              <span class="stat-label">Direct APKs</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <div class="stat-value-wrap">
+                <span class="stat-value text-emerald">0</span>
+              </div>
+              <span class="stat-label">Ad Trackers</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <div class="stat-value-wrap">
+                <span class="stat-value count-up" data-target="60">60</span>
+                <span class="stat-plus">FPS</span>
+              </div>
+              <span class="stat-label">Fluid Performance</span>
+            </div>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat-card">
-            <span class="stat-value">Zero</span>
-            <span class="stat-label">Ad Trackers</span>
+        </div>
+
+        <!-- 3D Interactive Mockup Showcase Hero Visual -->
+        <div class="hero-visual reveal-on-scroll">
+          <div class="device-showcase-wrap" id="hero-tilt-device">
+            <div class="device-glow-backdrop"></div>
+
+            <!-- Floating Orbit Tech Badges -->
+            <div class="floating-badge badge-flutter" data-speed="1.2">
+              <i class="fa-brands fa-flutter"></i>
+              <span>Flutter 3.x</span>
+            </div>
+            <div class="floating-badge badge-android" data-speed="0.8">
+              <i class="fa-brands fa-android"></i>
+              <span>Android 8.0+</span>
+            </div>
+            <div class="floating-badge badge-ai" data-speed="1.5">
+              <i class="fa-solid fa-brain"></i>
+              <span>AI Powered</span>
+            </div>
+            <div class="floating-badge badge-security" data-speed="1.0">
+              <i class="fa-solid fa-lock"></i>
+              <span>Safe APKs</span>
+            </div>
+
+            <!-- Sleek Phone Frame with Interactive Screen -->
+            <div class="phone-mockup">
+              <div class="phone-notch">
+                <span class="phone-camera"></span>
+                <span class="phone-speaker"></span>
+              </div>
+              <div class="phone-screen">
+                <div class="phone-screen-header">
+                  <div class="phone-time">09:41</div>
+                  <div class="phone-status-icons">
+                    <i class="fa-solid fa-signal"></i>
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-battery-full"></i>
+                  </div>
+                </div>
+
+                <div class="phone-hero-card">
+                  <div class="phone-app-banner">
+                    <span class="phone-chip">Featured App</span>
+                    <h4 class="phone-app-title">AI Study Assist</h4>
+                    <p class="phone-app-desc">Instant topic explanations &amp; mock quizzes</p>
+                  </div>
+                  <div class="phone-stats-mini">
+                    <span><i class="fa-solid fa-star text-amber"></i> 4.9</span>
+                    <span><i class="fa-solid fa-download"></i> 18.5 MB</span>
+                    <span><i class="fa-solid fa-shield-check text-emerald"></i> Verified</span>
+                  </div>
+                  <a href="#apps-catalog" class="phone-install-btn">
+                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                    <span>Get App Now</span>
+                  </a>
+                </div>
+
+                <div class="phone-mini-grid">
+                  <div class="phone-mini-card">
+                    <i class="fa-solid fa-heart-pulse text-pink"></i>
+                    <span>Women SOS</span>
+                  </div>
+                  <div class="phone-mini-card">
+                    <i class="fa-solid fa-users-viewfinder text-cyan"></i>
+                    <span>Talent AI</span>
+                  </div>
+                  <div class="phone-mini-card">
+                    <i class="fa-solid fa-leaf text-emerald"></i>
+                    <span>Carbon Foot</span>
+                  </div>
+                  <div class="phone-mini-card">
+                    <i class="fa-solid fa-bag-shopping text-indigo"></i>
+                    <span>E-Commerce</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prominent Sideloading Notice Banner with Dynamic Glow -->
+    <section class="banner-section reveal-on-scroll" aria-label="APK Sideloading Notice">
+      <div class="sideload-banner tilt-card">
+        <div class="banner-icon-box">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span class="banner-icon-ping"></span>
+        </div>
+        <div class="banner-content">
+          <div class="banner-header">
+            <h2 class="banner-title">Direct Sideloading Notice</h2>
+            <span class="banner-badge"><i class="fa-solid fa-check"></i> Safe &amp; Direct</span>
+          </div>
+          <p class="banner-desc">
+            These apps are independently distributed and not hosted on the Google Play Store. To install, simply
+            download the <code>.apk</code> file and allow <strong>"Install unknown apps"</strong> when prompted by your
+            browser or file manager.
+          </p>
+        </div>
+        <div class="banner-actions">
+          <button type="button" id="banner-guide-trigger" class="banner-cta-btn">
+            <i class="fa-solid fa-book-open"></i>
+            <span>30-Sec Guide</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase Catalog & Search Filters -->
+    <section class="catalog-section" id="apps-catalog">
+      <div class="catalog-header reveal-on-scroll">
+        <div class="section-headline">
+          <div class="section-tag"><i class="fa-solid fa-layer-group"></i> App Catalog</div>
+          <h2 class="section-title">Explore Applications</h2>
+          <p class="section-subtitle">Browse through the collection or search for specific tools</p>
+        </div>
+
+        <!-- Search & Control Bar -->
+        <div class="catalog-controls">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="app-search-input" placeholder="Search apps by name, category, or keyword..."
+              autocomplete="off" aria-label="Search apps">
+            <div class="search-key-badge" id="search-kbd-hint" title="Press Ctrl+K to search">
+              <span class="kbd-key">Ctrl</span><span class="kbd-key">K</span>
+            </div>
+            <button type="button" id="clear-search-btn" class="clear-search-btn hidden" aria-label="Clear search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs with Dynamic Indicator -->
+      <div class="category-tabs-wrapper reveal-on-scroll">
+        <div class="category-tabs" id="category-tabs" role="tablist">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+      </div>
+
+      <!-- Results Count Status -->
+      <div class="results-meta reveal-on-scroll">
+        <div class="results-count-badge">
+          <i class="fa-solid fa-sliders"></i>
+          <span id="results-count-text">Showing all apps</span>
+        </div>
+      </div>
+
+      <!-- Apps Grid Container -->
+      <section class="apps-grid" id="apps-grid" aria-label="Apps collection" aria-live="polite">
+        <!-- Rendered dynamically by script.js from APPS_DATA with 3D tilt & smooth entry -->
+      </section>
+
+      <!-- Empty State Container -->
+      <div class="empty-state hidden" id="empty-state">
+        <div class="empty-icon-wrap">
+          <i class="fa-solid fa-box-open"></i>
+        </div>
+        <h3 class="empty-title">No matching apps found</h3>
+        <p class="empty-desc">We couldn't find any app matching your search or active filter.</p>
+        <button type="button" id="reset-filters-btn" class="btn-secondary">
+          <i class="fa-solid fa-rotate-left"></i>
+          <span>Reset All Filters</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Open Source Repositories Showcase Section -->
+    <section class="repositories-section" id="repositories-section">
+      <div class="repositories-shell reveal-on-scroll">
+        <div class="repositories-header">
+          <div>
+            <div class="repositories-kicker"><i class="fa-brands fa-github"></i> Open Source Ecosystem</div>
+            <h2 class="section-title">Public Repositories</h2>
+            <p class="repositories-intro">
+              Explore the source code, open issues, and developer architectures behind our Flutter and web projects.
+            </p>
+          </div>
+          <a href="https://github.com/Tanujdarokar" target="_blank" rel="noopener noreferrer"
+            class="repositories-profile-link">
+            <i class="fa-brands fa-github"></i>
+            <span>View GitHub Profile</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="repositories-toolbar">
+          <div class="repository-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="repository-search-input" placeholder="Find a repository..."
+              aria-label="Filter repositories">
+          </div>
+          <span class="repository-count" id="repository-count">7 repositories</span>
+        </div>
+
+        <div class="repository-list" id="repository-list">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+        <div class="repository-empty hidden" id="repository-empty">
+          <p>No repositories match your search filter.</p>
         </div>
       </div>
     </section>
 
     <!-- Login / Register Auth Panel -->
     <section class="auth-section" id="auth-panel">
-      <div class="auth-container">
+      <div class="auth-container reveal-on-scroll tilt-card">
         <div class="auth-intro">
-          <span class="auth-kicker">Member Access</span>
+          <span class="auth-kicker"><i class="fa-solid fa-sparkles"></i> Member Access</span>
           <h2 class="auth-title">Welcome to your workspace</h2>
-          <p class="auth-copy">Log in to manage your apps, projects, and product updates. Create a new account when you are ready to publish.</p>
+          <p class="auth-copy">
+            Log in to manage your apps, projects, and product updates. Create a new account when you are ready to
+            publish.
+          </p>
 
           <div class="auth-feature-list">
             <div class="auth-feature-item">
@@ -131,6 +385,10 @@
             <div class="auth-feature-item">
               <i class="fa-solid fa-rocket"></i>
               <span>Launch-ready dashboard</span>
+            </div>
+            <div class="auth-feature-item">
+              <i class="fa-solid fa-code-commit"></i>
+              <span>Direct APK pipelines</span>
             </div>
           </div>
         </div>
@@ -179,7 +437,7 @@
                 <a href="#" class="auth-link">Forgot password?</a>
               </div>
 
-              <button type="button" class="btn-primary auth-submit-btn">
+              <button type="submit" class="btn-primary auth-submit-btn">
                 <i class="fa-solid fa-arrow-right-to-bracket"></i>
                 <span>Login to Dashboard</span>
               </button>
@@ -211,18 +469,19 @@
                 <label class="auth-label" for="register-password">Password</label>
                 <div class="auth-input-wrap">
                   <i class="fa-solid fa-lock"></i>
-                  <input type="password" id="register-password" class="auth-input" placeholder="Create a password" required>
+                  <input type="password" id="register-password" class="auth-input" placeholder="Create a password"
+                    required>
                 </div>
               </div>
 
               <div class="auth-options-row">
                 <label class="auth-check">
-                  <input type="checkbox">
-                  <span>I agree to terms</span>
+                  <input type="checkbox" required>
+                  <span>I agree to terms and privacy</span>
                 </label>
               </div>
 
-              <button type="button" class="btn-primary auth-submit-btn">
+              <button type="submit" class="btn-primary auth-submit-btn">
                 <i class="fa-solid fa-user-plus"></i>
                 <span>Create Account</span>
               </button>
@@ -231,87 +490,9 @@
         </div>
       </div>
     </section>
-
-    <!-- Prominent Sideloading Notice Banner -->
-    <section class="banner-section" aria-label="APK Sideloading Notice">
-      <div class="sideload-banner">
-        <div class="banner-icon-box">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <div class="banner-content">
-          <div class="banner-header">
-            <h2 class="banner-title">Direct Sideloading Notice</h2>
-            <span class="banner-badge">Safe &amp; Direct</span>
-          </div>
-          <p class="banner-desc">
-            These apps are independently distributed and not hosted on the Google Play Store. To install, simply
-            download the <code>.apk</code> file and allow <strong>"Install unknown apps"</strong> when prompted by your
-            browser or file manager.
-          </p>
-        </div>
-        <div class="banner-actions">
-          <button type="button" id="banner-guide-trigger" class="banner-cta-btn">
-            <i class="fa-solid fa-book-open"></i>
-            <span>30-Sec Guide</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Showcase Catalog & Search Filters -->
-    <section class="catalog-section" id="apps-catalog">
-      <div class="catalog-header">
-        <div class="section-headline">
-          <h2 class="section-title">Explore Applications</h2>
-          <p class="section-subtitle">Browse through the collection or search for specific tools</p>
-        </div>
-
-        <!-- Search & Control Bar -->
-        <div class="catalog-controls">
-          <div class="search-input-wrapper">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="app-search-input" placeholder="Search by app name, description, or keyword..."
-              autocomplete="off" aria-label="Search apps">
-            <button type="button" id="clear-search-btn" class="clear-search-btn hidden" aria-label="Clear search">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Category Filter Tabs -->
-      <div class="category-tabs-wrapper">
-        <div class="category-tabs" id="category-tabs" role="tablist">
-          <!-- Rendered dynamically by script.js -->
-        </div>
-      </div>
-
-      <!-- Results Count Status -->
-      <div class="results-meta">
-        <span id="results-count-text">Showing all apps</span>
-      </div>
-
-      <!-- Apps Grid Container -->
-      <section class="apps-grid" id="apps-grid" aria-label="Apps collection" aria-live="polite">
-        <!-- Rendered dynamically by script.js from APPS_DATA -->
-      </section>
-
-      <!-- Empty State Container -->
-      <div class="empty-state hidden" id="empty-state">
-        <div class="empty-icon-wrap">
-          <i class="fa-solid fa-box-open"></i>
-        </div>
-        <h3 class="empty-title">No matching apps found</h3>
-        <p class="empty-desc">We couldn't find any app matching your search or active filter.</p>
-        <button type="button" id="reset-filters-btn" class="btn-secondary">
-          <i class="fa-solid fa-rotate-left"></i>
-          <span>Reset All Filters</span>
-        </button>
-      </div>
-    </section>
   </main>
 
-  <!-- App Detail Modal Window -->
+  <!-- App Detail Modal Window with 3D Spring Entrance -->
   <div class="modal-overlay hidden" id="app-detail-modal" role="dialog" aria-modal="true"
     aria-labelledby="modal-app-name">
     <div class="modal-backdrop" id="modal-backdrop"></div>
@@ -324,7 +505,9 @@
         <!-- Modal App Header -->
         <div class="modal-header-hero">
           <div class="modal-icon-wrap">
-            <img id="modal-app-icon" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80" alt="App Icon" class="modal-app-img" loading="lazy">
+            <img id="modal-app-icon"
+              src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80"
+              alt="App Icon" class="modal-app-img" loading="lazy">
           </div>
           <div class="modal-header-details">
             <div class="modal-badge-row">
@@ -391,7 +574,8 @@
         <div class="modal-section" id="screenshots-section">
           <div class="modal-section-header">
             <h3 class="modal-section-title"><i class="fa-solid fa-images"></i> Screenshots</h3>
-            <span class="section-hint">Click on any screenshot to expand</span>
+            <span class="section-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click on any screenshot to
+              expand</span>
           </div>
 
           <div class="screenshot-gallery-container">
@@ -429,7 +613,7 @@
       <!-- Modal Footer -->
       <div class="modal-dialog-footer">
         <div class="modal-footer-note">
-          <i class="fa-solid fa-circle-info"></i>
+          <i class="fa-solid fa-circle-check text-emerald"></i>
           <span>Direct APK from verified build source</span>
         </div>
         <div class="modal-footer-btns">
@@ -490,7 +674,8 @@
               </p>
               <div class="step-tip">
                 <i class="fa-solid fa-lightbulb"></i>
-                <span>Tap <strong>Settings</strong> on the prompt &amp; toggle <strong>"Allow from this source"</strong> to
+                <span>Tap <strong>Settings</strong> on the prompt &amp; toggle <strong>"Allow from this source"</strong>
+                  to
                   ON.</span>
               </div>
             </div>
@@ -539,8 +724,22 @@
       <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="lightbox-content">
-      <img id="lightbox-img" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80" alt="Screenshot expanded view">
+      <img id="lightbox-img"
+        src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80"
+        alt="Screenshot expanded view">
     </div>
+  </div>
+
+  <!-- Floating Quick Navigation & Scroll-to-Top Widget -->
+  <div class="floating-dock" id="floating-dock">
+    <button type="button" id="back-to-top-btn" class="dock-btn back-to-top-btn" aria-label="Back to top"
+      title="Back to Top">
+      <svg class="progress-ring" width="44" height="44" viewBox="0 0 44 44">
+        <circle class="progress-ring-bg" cx="22" cy="22" r="18"></circle>
+        <circle class="progress-ring-circle" id="dock-progress-circle" cx="22" cy="22" r="18"></circle>
+      </svg>
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
   </div>
 
   <!-- Toast Notification Container -->
@@ -552,8 +751,9 @@
       <div class="footer-main">
         <div class="footer-brand">
           <div class="logo-icon-wrap">
-          <img src="assets/logo/hosting_website_logo.png" alt="AppSphere Logo" class="brand-logo-img" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80';">
-        </div>
+            <img src="assets/logo/hosting_website_logo.png" alt="AppSphere Logo" class="brand-logo-img"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80';">
+          </div>
           <span class="footer-brand-title"><span class="brand-accent">App</span>Sphere</span>
           <p class="footer-tagline" id="footer-author-bio">
             Independent mobile applications built with Flutter, Dart, and love for smooth UI.
@@ -565,6 +765,8 @@
           <ul class="footer-nav-list">
             <li><a href="#hero">Home</a></li>
             <li><a href="#apps-catalog">All Apps</a></li>
+            <li><a href="#repositories-section">Repositories</a></li>
+            <li><a href="#auth-panel">Member Portal</a></li>
             <li><a href="javascript:void(0)" id="footer-guide-link">Installation Guide</a></li>
           </ul>
         </div>
@@ -572,13 +774,13 @@
         <div class="footer-links-group">
           <h4 class="footer-group-title">Developer &amp; Social</h4>
           <div class="social-pills" id="social-pills">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-pill"
+            <a href="https://github.com/Tanujdarokar" target="_blank" rel="noopener noreferrer" class="social-pill"
               id="footer-gh-link">
               <i class="fa-brands fa-github"></i>
               <span>GitHub</span>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill"
-              id="footer-li-link">
+            <a href="https://linkedin.com/in/tanuj-darokar" target="_blank" rel="noopener noreferrer"
+              class="social-pill" id="footer-li-link">
               <i class="fa-brands fa-linkedin"></i>
               <span>LinkedIn</span>
             </a>
@@ -586,26 +788,29 @@
               <i class="fa-brands fa-x-twitter"></i>
               <span>Twitter / X</span>
             </a>
-            <a href="mailto:hello@flutterstudio.dev" class="social-pill" id="footer-mail-link">
+            <a href="mailto:tanujdarokar@gmail.com" class="social-pill" id="footer-mail-link">
               <i class="fa-solid fa-envelope"></i>
               <span>Email</span>
             </a>
-            <a href="https://tanujdarokar.github.io/tanuj_portfolio/" target="_blank" rel="noopener noreferrer" class="social-pill" id="footer-portfolio-link"> 
-              <i class="fa-solid fa-globe"></i> 
-              <span>Portfolio</span> </a>
+            <a href="https://tanujdarokar.github.io/tanuj_portfolio/" target="_blank" rel="noopener noreferrer"
+              class="social-pill" id="footer-portfolio-link">
+              <i class="fa-solid fa-globe"></i>
+              <span>Portfolio</span>
+            </a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div class="footer-copy">
-          <p>&copy; <span id="current-year">2026</span> <strong id="footer-author-name">AppSphere</strong>. Built
-            for GitHub Pages hosting.</p>
+          <p>&copy; <span id="current-year">2026</span> <strong id="footer-author-name">Tanuj Darokar</strong> &bull;
+            AppSphere. Built with Flutter &amp; Web Standards.</p>
         </div>
-        <button type="button" id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to top">
-          <i class="fa-solid fa-arrow-up"></i>
-          <span>Back to Top</span>
-        </button>
+        <div class="footer-badges">
+          <span class="tech-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span class="tech-badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+          <span class="tech-badge"><i class="fa-brands fa-js"></i> JS</span>
+        </div>
       </div>
     </div>
   </footer>
@@ -614,4 +819,5 @@
   <script src="apps-data.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
