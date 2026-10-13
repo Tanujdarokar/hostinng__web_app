@@ -1,25 +1,16 @@
-# AppSphere — APK Showcase Website
+# AppSphere Portfolio
 
-AppSphere is a modern static portfolio website for showcasing independent Android, AI, and web projects. The site is built with HTML, CSS, and JavaScript and is powered by a central app catalog in `apps-data.js`.
+AppSphere is a static portfolio for showcasing independent Android, AI, and web projects. It is built with HTML, CSS, and JavaScript and uses a central app catalog to keep project details easy to update.
 
-## Current project status
+## What I built and why
+I built this portfolio to present my work in a cleaner, more recruiter-friendly way: project summaries, screenshots, available APK releases, and live demos all in one place. The goal was to make it easy for people to understand the product thinking behind each build without needing a long explanation.
 
-This repository is a working showcase website with the following features:
+## Resume
+- Portfolio: https://tanujdarokar.github.io/hostinng__web_app/
+- Resume: https://tanujdarokar.github.io/hostinng__web_app/resume.html
+- GitHub: https://github.com/Tanujdarokar
 
-- Hero section with premium app-store style branding
-- Search and category filtering for the project catalog
-- App cards with metadata, tags, and live quick info
-- App detail modal with description, features, screenshots, and changelog
-- Direct APK/website action links for each project
-- Install guide modal for sideloading APKs on Android
-- Dark/light theme support with smooth UI transitions
-- Animated counters, ambient background effects, and polished scrolling experience
-- GitHub repository showcase section and author profile links
-
-## Featured apps in the current catalog
-
-The live catalog currently includes these projects:
-
+## Featured projects
 - AI Study Assist
 - Women SOS
 - Talent Match AI
@@ -30,49 +21,17 @@ The live catalog currently includes these projects:
 - Carbon Foot Print
 - Smart Management Web
 
-## Tech stack
-
-- HTML5
-- CSS3
-- JavaScript
-- Font Awesome
-- Google Fonts
-- Local static assets and screenshots
-
-## Project structure
-
-```text
-.
-├── index.html              # Main website layout and sections
-├── style.css              # Full responsive styling and motion design
-├── script.js              # Rendering logic, filters, modal UI, theme toggle, animations
-├── apps-data.js           # App metadata, project catalog, site configuration
-├── assets/                # Logos, screenshots, app media, and icons
-├── app/                   # App-related support files
-├── README.md              # Project documentation
-└── .gitignore             # Repository ignores
-```
-
-## Run locally
-
-You can preview the site by opening `index.html` directly in a browser, or run it using a local web server:
-
-```bash
-cd "c:\Users\tanuj\Desktop\hosting website"
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
+## Screenshots
+Screenshots and visual assets live in the `assets/` folders and are intended to show the look and feel of the projects in the catalogue.
 
 ## Notes
+This is a front-end showcase portfolio. Projects that are UI-only are described as UI prototypes or mockups rather than as production authentication systems or backend-powered apps.
 
-This project is designed as a static showcase platform for mobile apps and web projects. App details, descriptions, screenshots, categories, download links, and website links are managed centrally in `apps-data.js` for easy updates.
-
-## Author
-
-Tanuj Darokar
-
+## Site policies and discoverability
+- Privacy and usage terms: `privacy.html` and `terms.html`.
+- GitHub Pages not-found page: `404.html`.
+- Search engine files: `sitemap.xml` and `robots.txt`.
+- The login and registration forms are UI demos only; they do not create accounts or send form data.
+- APK buttons are shown only when a release URL is configured and available.
+- The privacy banner stores a local preference. Analytics remains disabled until a provider and tracking ID are configured.
+- Update the canonical URLs in the page metadata, sitemap, and robots file if the published Pages URL changes.

@@ -6,21 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO Meta Tags -->
-  <title>AppSphere — Independent Flutter Apps &amp; APK Showcase</title>
-  <meta name="title" content="AppSphere — Independent Flutter Apps &amp; APK Showcase">
+  <title>AppSphere | Android, AI &amp; Web Project Showcase</title>
+  <meta name="title" content="AppSphere | Android, AI &amp; Web Project Showcase">
   <meta name="description"
-    content="Discover and download high-quality, open-source and independent Flutter apps for Android. Direct APK releases, feature overviews, and changelogs.">
+    content="Explore Tanuj Darokar's independent Android, AI, and web projects, with app details, screenshots, source code, and release links.">
   <meta name="keywords"
-    content="Flutter, Android APK, Flutter Apps, Direct APK Download, Mobile App Showcase, Open Source Flutter">
+    content="Android app portfolio, AI projects, web projects, Flutter, software project showcase">
   <meta name="author" content="AppSphere">
+  <meta name="theme-color" content="#050811">
+  <link rel="canonical" href="https://tanujdarokar.github.io/hostinng__web_app/">
+  <link rel="icon" type="image/png" href="assets/logo/appsphere-icon-256.png">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AppSphere — Independent Flutter Apps &amp; APK Showcase">
-  <meta property="og:description" content="Download direct APK releases of innovative Flutter mobile apps.">
-  <meta property="og:image"
-    content="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&auto=format&fit=crop&q=80">
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://tanujdarokar.github.io/hostinng__web_app/">
+  <meta property="og:title" content="AppSphere | Android, AI &amp; Web Project Showcase">
+  <meta property="og:description"
+    content="Explore independent Android, AI, and web projects, with app details, screenshots, source code, and releases.">
+  <meta property="og:image" content="https://tanujdarokar.github.io/hostinng__web_app/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AppSphere | Android, AI &amp; Web Project Showcase">
+  <meta name="twitter:description"
+    content="Explore independent Android, AI, and web projects, with app details, screenshots, source code, and releases.">
+  <meta name="twitter:image" content="https://tanujdarokar.github.io/hostinng__web_app/social-preview.png">
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,24 +62,29 @@
     <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
 
     <div class="header-container">
-      <a href="#" class="brand-logo" aria-label="AppSphere Home">
+      <a href="#hero" class="brand-logo" aria-label="AppSphere Home">
         <div class="logo-icon-wrap">
-          <img src="assets/logo/hosting_website_logo.png" alt="AppSphere Logo" class="brand-logo-img"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80';">
+          <img src="assets/logo/appsphere-icon-256.png" alt="AppSphere logo" class="brand-logo-img" width="256"
+            height="256" decoding="async">
           <span class="logo-glow-ring"></span>
         </div>
         <div class="brand-text">
           <span class="brand-title"><span class="brand-accent">App</span>Sphere</span>
-          <span class="brand-badge"><i class="fa-solid fa-bolt-lightning"></i> APK Store</span>
+          <span class="brand-badge"><i class="fa-solid fa-bolt-lightning"></i> Project Portfolio</span>
         </div>
       </a>
 
-      <nav class="header-nav" aria-label="Main Navigation">
+      <nav class="header-nav" id="header-nav" aria-label="Main Navigation">
         <a href="#hero" class="nav-link">Overview</a>
         <a href="#apps-catalog" class="nav-link">Apps Catalog</a>
         <a href="#repositories-section" class="nav-link">Repositories</a>
         <a href="#auth-panel" class="nav-link">Account</a>
       </nav>
+
+      <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-controls="header-nav"
+        aria-expanded="false" aria-label="Open main navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
 
       <div class="header-actions">
         <button type="button" id="install-guide-btn" class="nav-action-btn" title="How to install APKs">
@@ -81,6 +96,10 @@
           class="nav-icon-btn" title="GitHub Profile" aria-label="GitHub profile">
           <span class="sr-only">GitHub profile</span>
           <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="resume.html" class="nav-icon-btn" title="Resume" aria-label="Resume">
+          <span class="sr-only">Resume</span>
+          <i class="fa-solid fa-file-lines"></i>
         </a>
 
         <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode"
@@ -99,45 +118,39 @@
         <div class="hero-content reveal-on-scroll">
           <div class="hero-tag">
             <span class="pulse-dot"></span>
-            <span>Crafted with Flutter 3.x &amp; Dart</span>
-            <span class="hero-tag-badge">v2.0 UI</span>
+            <span>Independent Android, AI &amp; web builds</span>
+            <span class="hero-tag-badge">Project portfolio</span>
           </div>
           <h1 class="hero-title">
-            Direct APKs for <span class="gradient-text animated-gradient">Handcrafted</span> Mobile Experiences
+            Independent projects, <span class="gradient-text animated-gradient">made to explore</span>
           </h1>
           <p class="hero-subtitle">
-            Explore and install standalone Android applications built with modern Flutter architecture. Blazing fast,
-            ad-free, privacy-conscious, and ready for instant sideloading.
+            Browse independently built Android, AI, and web projects. Each listing includes screenshots and a source
+            or release link when one is available.
           </p>
 
           <div class="hero-cta-group">
             <a href="#apps-catalog" class="btn-primary hero-btn-main">
               <i class="fa-solid fa-compass"></i>
-              <span>Explore Applications</span>
+              <span>Explore Projects</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <button type="button" id="hero-guide-btn" class="btn-secondary hero-btn-secondary">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Sideload Guide</span>
-            </button>
           </div>
 
           <!-- Quick Stats Bar with Counter Animation -->
           <div class="hero-stats">
             <div class="stat-card">
               <div class="stat-value-wrap">
-                <span class="stat-value count-up" data-target="8" id="stat-apps-count">8</span>
-                <span class="stat-plus">+</span>
+                <span class="stat-value count-up" data-target="9" id="stat-apps-count">9</span>
               </div>
-              <span class="stat-label">Showcased Apps</span>
+              <span class="stat-label">Showcased Projects</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-card">
               <div class="stat-value-wrap">
-                <span class="stat-value count-up" data-target="100">100</span>
-                <span class="stat-percent">%</span>
+                <span class="stat-value count-up" data-target="8" id="stat-categories-count">8</span>
               </div>
-              <span class="stat-label">Direct APKs</span>
+              <span class="stat-label">Project Categories</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-card">
@@ -148,11 +161,8 @@
             </div>
             <div class="stat-divider"></div>
             <div class="stat-card">
-              <div class="stat-value-wrap">
-                <span class="stat-value count-up" data-target="60">60</span>
-                <span class="stat-plus">FPS</span>
-              </div>
-              <span class="stat-label">Fluid Performance</span>
+              <span class="stat-value text-cyan"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
+              <span class="stat-label">Mobile Friendly</span>
             </div>
           </div>
         </div>
@@ -177,7 +187,7 @@
             </div>
             <div class="floating-badge badge-security" data-speed="1.0">
               <i class="fa-solid fa-lock"></i>
-              <span>Safe APKs</span>
+              <span>Independent projects</span>
             </div>
 
             <!-- Sleek Phone Frame with Interactive Screen -->
@@ -203,13 +213,13 @@
                     <p class="phone-app-desc">Instant topic explanations &amp; mock quizzes</p>
                   </div>
                   <div class="phone-stats-mini">
-                    <span><i class="fa-solid fa-star text-amber"></i> 4.9</span>
-                    <span><i class="fa-solid fa-download"></i> 18.5 MB</span>
-                    <span><i class="fa-solid fa-shield-check text-emerald"></i> Verified</span>
+                    <span><i class="fa-brands fa-android text-emerald"></i> Android</span>
+                    <span><i class="fa-solid fa-brain"></i> AI learning</span>
+                    <span><i class="fa-solid fa-code"></i> Project demo</span>
                   </div>
                   <a href="#apps-catalog" class="phone-install-btn">
                     <i class="fa-solid fa-cloud-arrow-down"></i>
-                    <span>Get App Now</span>
+                    <span>Explore Projects</span>
                   </a>
                 </div>
 
@@ -248,12 +258,12 @@
         <div class="banner-content">
           <div class="banner-header">
             <h2 class="banner-title">Direct Sideloading Notice</h2>
-            <span class="banner-badge"><i class="fa-solid fa-check"></i> Safe &amp; Direct</span>
+            <span class="banner-badge"><i class="fa-solid fa-circle-info"></i> Check availability</span>
           </div>
           <p class="banner-desc">
-            These apps are independently distributed and not hosted on the Google Play Store. To install, simply
-            download the <code>.apk</code> file and allow <strong>"Install unknown apps"</strong> when prompted by your
-            browser or file manager.
+            Android APK links appear only when a release is available; projects without one are showcases or source
+            links. APKs are distributed outside Google Play, so check the publisher, permissions, and source before
+            installing and allow <strong>"Install unknown apps"</strong> only when you choose to proceed.
           </p>
         </div>
         <div class="banner-actions">
@@ -367,28 +377,28 @@
       <div class="auth-container reveal-on-scroll tilt-card">
         <div class="auth-intro">
           <span class="auth-kicker"><i class="fa-solid fa-sparkles"></i> Member Access</span>
-          <h2 class="auth-title">Welcome to your workspace</h2>
+          <h2 class="auth-title">Preview the account interface</h2>
           <p class="auth-copy">
-            Log in to manage your apps, projects, and product updates. Create a new account when you are ready to
-            publish.
+            These login and registration forms are visual demos only. There is no account service: submissions stay in
+            this browser and are not sent or saved.
           </p>
 
           <div class="auth-feature-list">
             <div class="auth-feature-item">
               <i class="fa-solid fa-bolt"></i>
-              <span>Fast project access</span>
+              <span>Form validation demo</span>
             </div>
             <div class="auth-feature-item">
               <i class="fa-solid fa-shield-heart"></i>
-              <span>Safe account workflow</span>
+              <span>No account service</span>
             </div>
             <div class="auth-feature-item">
               <i class="fa-solid fa-rocket"></i>
-              <span>Launch-ready dashboard</span>
+              <span>Local UI preview</span>
             </div>
             <div class="auth-feature-item">
               <i class="fa-solid fa-code-commit"></i>
-              <span>Direct APK pipelines</span>
+              <span>No data is submitted</span>
             </div>
           </div>
         </div>
@@ -407,7 +417,11 @@
           </div>
 
           <div class="auth-form-stage">
-            <form class="auth-form active" id="login-form">
+            <form class="auth-form active" id="login-form" aria-label="Demo login form">
+              <div class="form-trap" aria-hidden="true">
+                <label for="login-website">Leave this field empty</label>
+                <input type="text" id="login-website" name="website" tabindex="-1" autocomplete="off">
+              </div>
               <div class="auth-form-title-row">
                 <h3 class="auth-form-title">Login</h3>
                 <span class="auth-small-label">Welcome back</span>
@@ -417,7 +431,8 @@
                 <label class="auth-label" for="login-email">Email address</label>
                 <div class="auth-input-wrap">
                   <i class="fa-solid fa-envelope"></i>
-                  <input type="email" id="login-email" class="auth-input" placeholder="name@example.com" required>
+                  <input type="email" id="login-email" class="auth-input" placeholder="name@example.com" required
+                    autocomplete="username" maxlength="254">
                 </div>
               </div>
 
@@ -425,7 +440,8 @@
                 <label class="auth-label" for="login-password">Password</label>
                 <div class="auth-input-wrap">
                   <i class="fa-solid fa-lock"></i>
-                  <input type="password" id="login-password" class="auth-input" placeholder="••••••••" required>
+                  <input type="password" id="login-password" class="auth-input" placeholder="At least 8 characters"
+                    required minlength="8" maxlength="128" autocomplete="current-password">
                 </div>
               </div>
 
@@ -434,7 +450,7 @@
                   <input type="checkbox">
                   <span>Remember me</span>
                 </label>
-                <a href="#" class="auth-link">Forgot password?</a>
+                <a href="mailto:tanujdarokar@gmail.com?subject=AppSphere%20account%20demo" class="auth-link">Contact</a>
               </div>
 
               <button type="submit" class="btn-primary auth-submit-btn">
@@ -443,7 +459,11 @@
               </button>
             </form>
 
-            <form class="auth-form" id="register-form">
+            <form class="auth-form" id="register-form" aria-label="Demo registration form">
+              <div class="form-trap" aria-hidden="true">
+                <label for="register-website">Leave this field empty</label>
+                <input type="text" id="register-website" name="website" tabindex="-1" autocomplete="off">
+              </div>
               <div class="auth-form-title-row">
                 <h3 class="auth-form-title">Create account</h3>
                 <span class="auth-small-label">Start free</span>
@@ -453,7 +473,8 @@
                 <label class="auth-label" for="register-name">Full name</label>
                 <div class="auth-input-wrap">
                   <i class="fa-solid fa-user"></i>
-                  <input type="text" id="register-name" class="auth-input" placeholder="Your name" required>
+                  <input type="text" id="register-name" class="auth-input" placeholder="Your name" required
+                    minlength="2" maxlength="80" autocomplete="name">
                 </div>
               </div>
 
@@ -461,7 +482,8 @@
                 <label class="auth-label" for="register-email">Email address</label>
                 <div class="auth-input-wrap">
                   <i class="fa-solid fa-envelope"></i>
-                  <input type="email" id="register-email" class="auth-input" placeholder="name@example.com" required>
+                  <input type="email" id="register-email" class="auth-input" placeholder="name@example.com" required
+                    autocomplete="email" maxlength="254">
                 </div>
               </div>
 
@@ -469,15 +491,16 @@
                 <label class="auth-label" for="register-password">Password</label>
                 <div class="auth-input-wrap">
                   <i class="fa-solid fa-lock"></i>
-                  <input type="password" id="register-password" class="auth-input" placeholder="Create a password"
-                    required>
+                  <input type="password" id="register-password" class="auth-input"
+                    placeholder="At least 8 characters" required minlength="8" maxlength="128"
+                    autocomplete="new-password">
                 </div>
               </div>
 
               <div class="auth-options-row">
                 <label class="auth-check">
                   <input type="checkbox" required>
-                  <span>I agree to terms and privacy</span>
+                  <span>I agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a></span>
                 </label>
               </div>
 
@@ -506,30 +529,30 @@
         <div class="modal-header-hero">
           <div class="modal-icon-wrap">
             <img id="modal-app-icon"
-              src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80"
-              alt="App Icon" class="modal-app-img" loading="lazy">
+              src="assets/icons/ai-study-assist.svg" alt="Selected app icon" class="modal-app-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="modal-header-details">
             <div class="modal-badge-row">
               <span class="badge-category" id="modal-app-category">Productivity</span>
               <span class="badge-version" id="modal-app-version">v1.0.0</span>
             </div>
-            <h2 class="modal-app-title" id="modal-app-name">App Title</h2>
-            <p class="modal-app-tagline" id="modal-app-tagline">Short tagline here</p>
+            <h2 class="modal-app-title" id="modal-app-name">Project details</h2>
+            <p class="modal-app-tagline" id="modal-app-tagline">Project overview</p>
 
             <!-- Quick Action Buttons in Modal Header -->
             <div class="modal-header-actions">
-              <a href="#" id="modal-download-btn" class="btn-primary" download>
+              <a href="index.html#apps-catalog" id="modal-download-btn" class="btn-primary" download>
                 <i class="fa-solid fa-download"></i>
                 <span>Download APK</span>
                 <span class="btn-subtext" id="modal-download-size">24.5 MB</span>
               </a>
-              <a href="#" id="modal-website-btn" target="_blank" rel="noopener noreferrer"
+              <a href="index.html#apps-catalog" id="modal-website-btn" target="_blank" rel="noopener noreferrer"
                 class="btn-secondary modal-website-link hidden" aria-label="Open project website">
                 <i class="fa-solid fa-globe"></i>
                 <span>Website</span>
               </a>
-              <a href="#" id="modal-github-btn" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/Tanujdarokar" id="modal-github-btn" target="_blank" rel="noopener noreferrer"
                 class="btn-secondary modal-repo-link" aria-label="Open source code repository">
                 <i class="fa-brands fa-github"></i>
                 <span>Source Code</span>
@@ -589,7 +612,7 @@
         <div class="modal-section">
           <h3 class="modal-section-title"><i class="fa-solid fa-align-left"></i> About This App</h3>
           <p class="modal-description-text" id="modal-app-description">
-            Full description goes here...
+            Project details and highlights will appear here when the app entry is loaded.
           </p>
         </div>
 
@@ -614,16 +637,16 @@
       <div class="modal-dialog-footer">
         <div class="modal-footer-note">
           <i class="fa-solid fa-circle-check text-emerald"></i>
-          <span>Direct APK from verified build source</span>
+          <span>Release link shown only when available</span>
         </div>
         <div class="modal-footer-btns">
           <button type="button" class="btn-secondary modal-close-trigger" id="modal-bottom-close-btn">Close</button>
-          <a href="#" id="modal-footer-website-btn" target="_blank" rel="noopener noreferrer"
+          <a href="index.html#apps-catalog" id="modal-footer-website-btn" target="_blank" rel="noopener noreferrer"
             class="btn-secondary modal-footer-website-link hidden" aria-label="Open project website">
             <i class="fa-solid fa-globe"></i>
             <span>Website</span>
           </a>
-          <a href="#" id="modal-footer-download-btn" class="btn-primary" download>
+          <a href="index.html#apps-catalog" id="modal-footer-download-btn" class="btn-primary" download>
             <i class="fa-solid fa-download"></i>
             <span>Download APK</span>
           </a>
@@ -655,10 +678,10 @@
           <div class="step-card">
             <div class="step-num">1</div>
             <div class="step-details">
-              <h3 class="step-heading">Download the APK file</h3>
+              <h3 class="step-heading">Find an available APK release</h3>
               <p class="step-body">
-                Click any <strong>"Download APK"</strong> button on this site. Your browser (Chrome, Samsung Internet,
-                Firefox, etc.) will start saving the <code>.apk</code> package to your Downloads folder.
+                When a project has a published APK, its listing will show a <strong>"Download APK"</strong> button.
+                Otherwise use the project's source or web demo link; do not download files from unrelated sources.
               </p>
             </div>
           </div>
@@ -688,7 +711,7 @@
               <h3 class="step-heading">Tap "Install" &amp; Launch</h3>
               <p class="step-body">
                 Press your back button to return to the installer dialog and tap <strong>Install</strong>. Once
-                completed, tap <strong>Open</strong> to start using your new Flutter app!
+                completed, tap <strong>Open</strong> to launch the app.
               </p>
             </div>
           </div>
@@ -696,14 +719,14 @@
 
         <div class="guide-faq">
           <div class="faq-item">
-            <div class="faq-q"><i class="fa-solid fa-shield-check"></i> Is it safe to install these APKs?</div>
-            <div class="faq-a">Yes. These APKs are compiled directly from source code repositories with standard
-              debug/release Android signatures and contain zero spyware or malicious code.</div>
+            <div class="faq-q"><i class="fa-solid fa-shield-halved"></i> Are APKs independently security-audited?</div>
+            <div class="faq-a">No. AppSphere does not independently audit or guarantee linked APKs. Review the
+              publisher, project source, and requested permissions before installing anything.</div>
           </div>
           <div class="faq-item">
             <div class="faq-q"><i class="fa-solid fa-rotate"></i> How do I update to newer versions?</div>
-            <div class="faq-a">Simply download the updated APK from this site and install it over the previous version.
-              Your app data and settings will be preserved automatically.</div>
+            <div class="faq-a">When a project publishes a new APK, follow that project's release instructions. App
+              data behavior depends on the project; do not assume an update will preserve it.</div>
           </div>
         </div>
       </div>
@@ -725,8 +748,7 @@
     </button>
     <div class="lightbox-content">
       <img id="lightbox-img"
-        src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80"
-        alt="Screenshot expanded view">
+        src="assets/screenshots/splash.png" alt="Expanded app screenshot" decoding="async">
     </div>
   </div>
 
@@ -751,12 +773,12 @@
       <div class="footer-main">
         <div class="footer-brand">
           <div class="logo-icon-wrap">
-            <img src="assets/logo/hosting_website_logo.png" alt="AppSphere Logo" class="brand-logo-img"
-              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=160&auto=format&fit=crop&q=80';">
+            <img src="assets/logo/appsphere-icon-256.png" alt="AppSphere logo" class="brand-logo-img" width="256"
+              height="256" loading="lazy" decoding="async">
           </div>
           <span class="footer-brand-title"><span class="brand-accent">App</span>Sphere</span>
           <p class="footer-tagline" id="footer-author-bio">
-            Independent mobile applications built with Flutter, Dart, and love for smooth UI.
+            Independent Android, AI, and web projects, presented with clear details and responsive design.
           </p>
         </div>
 
@@ -767,7 +789,9 @@
             <li><a href="#apps-catalog">All Apps</a></li>
             <li><a href="#repositories-section">Repositories</a></li>
             <li><a href="#auth-panel">Member Portal</a></li>
-            <li><a href="javascript:void(0)" id="footer-guide-link">Installation Guide</a></li>
+            <li><a href="#install-guide-btn" id="footer-guide-link">Installation Guide</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
           </ul>
         </div>
 
@@ -784,9 +808,9 @@
               <i class="fa-brands fa-linkedin"></i>
               <span>LinkedIn</span>
             </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-pill" id="footer-tw-link">
-              <i class="fa-brands fa-x-twitter"></i>
-              <span>Twitter / X</span>
+            <a href="resume.html" target="_blank" rel="noopener noreferrer" class="social-pill" id="footer-tw-link">
+              <i class="fa-solid fa-file-lines"></i>
+              <span>Resume</span>
             </a>
             <a href="mailto:tanujdarokar@gmail.com" class="social-pill" id="footer-mail-link">
               <i class="fa-solid fa-envelope"></i>
@@ -804,7 +828,7 @@
       <div class="footer-bottom">
         <div class="footer-copy">
           <p>&copy; <span id="current-year">2026</span> <strong id="footer-author-name">Tanuj Darokar</strong> &bull;
-            AppSphere. Built with Flutter &amp; Web Standards.</p>
+            AppSphere. Built with web standards.</p>
         </div>
         <div class="footer-badges">
           <span class="tech-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
@@ -812,8 +836,23 @@
           <span class="tech-badge"><i class="fa-brands fa-js"></i> JS</span>
         </div>
       </div>
+      <button type="button" class="cookie-settings-link" id="cookie-settings-trigger">Cookie preferences</button>
     </div>
   </footer>
+
+  <section class="cookie-banner hidden" id="cookie-banner" aria-label="Cookie and privacy preferences">
+    <div class="cookie-banner-copy">
+      <h2>Privacy preferences</h2>
+      <p>
+        This site uses local storage for essential preferences such as your theme and this choice. Optional analytics
+        are currently disabled. Read our <a href="privacy.html">Privacy Policy</a>.
+      </p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject-btn">Reject optional</button>
+      <button type="button" class="btn-primary" id="cookie-accept-btn">Accept optional</button>
+    </div>
+  </section>
 
   <!-- Scripts -->
   <script src="apps-data.js"></script>

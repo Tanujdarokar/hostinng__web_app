@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tanujdarokar.github.io/hostinng__web_app/sitemap.xml

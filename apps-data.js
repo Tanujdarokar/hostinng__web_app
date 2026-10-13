@@ -14,10 +14,11 @@
  * - icon: URL or SVG data URI for the app icon
  * - version: Current APK version string (e.g. "v1.0.0")
  * - updatedDate: Date of the latest release (e.g. "Sep 08, 2026")
- * - size: Download size in MB (e.g. "18.5 MB")
- * - minAndroid: Minimum Android version (e.g. "Android 8.0+")
+ * - size: Download size in MB or label (e.g. "18.5 MB")
+ * - minAndroid: Minimum Android version or platform (e.g. "Android 8.0+")
  * - apkUrl: Direct download link (e.g. GitHub Releases URL or direct file)
  * - githubUrl: (Optional) GitHub repository link
+ * - websiteUrl: (Optional) Web preview or deployed demo link
  * - featured: Boolean (if true, shows a "Featured" badge)
  * - description: Detailed description of what the app does
  * - features: Array of key features highlighted in the modal
@@ -37,8 +38,7 @@ const APPS_DATA = [
     updatedDate: "Sep 08, 2026",
     size: "18.5 MB",
     minAndroid: "Android 8.0+ (Oreo)",
-    apkUrl: "https://github.com/Tanujdarokar/AI-Study-Assist/releases/download/v1.0.0/AI-Study-Assist-v1.0.0.apk",
-    githubUrl: "https://github.com/Tanujdarokar",
+    apkUrl: "",
     featured: true,
     description: "AI Study Assist is an intelligent mobile learning companion designed to help students, scholars, and lifelong learners master any subject. Powered by state-of-the-art AI, the app provides instant topic explanations tailored to any complexity level (e.g. 'Explain like I'm 5'), automated study material summarization, customized mock quizzes with instant evaluation, and smart spaced-repetition flashcards. Featuring an eye-friendly AMOLED dark mode and clean daylight theme, personal scholar dashboard, and prompt suggestion shortcuts to make studying intuitive, focused, and enjoyable.",
     features: [
@@ -58,7 +58,7 @@ const APPS_DATA = [
       "assets/screenshots/drawer_menu.png"
     ],
     changelog: [
-      "Official launch of AI Study Assist v1.0.0 for Android",
+      "AI Study Assist project added to the showcase; no APK release is linked yet",
       "Complete AI learning suite: Explain Topic, Summarize, Mock Quiz, and Flashcards",
       "One-tap prompt inspiration card ('Explain Quantum Physics like I'm 5') and quick-ask bar",
       "OLED Dark mode & Day Light mode with instant switch support",
@@ -75,8 +75,7 @@ const APPS_DATA = [
     updatedDate: "Sep 08, 2026",
     size: "16.4 MB",
     minAndroid: "Android 8.0+ (Oreo)",
-    apkUrl: "https://github.com/Tanujdarokar",
-    githubUrl: "https://github.com/Tanujdarokar",
+    apkUrl: "",
     featured: false,
     description: "Women SOS is a safety-focused mobile experience designed to help women send emergency help quickly, share live location, and contact trusted people during urgent situations. The app focuses on fast response, confidence, and personal safety awareness through a clean workflow.",
     features: [
@@ -91,7 +90,12 @@ const APPS_DATA = [
       "assets/Women SOS/Screenshot 2026-01-18 060311.png",
       "assets/Women SOS/Screenshot 2026-01-18 060338.png",
       "assets/Women SOS/Screenshot 2026-01-18 060357.png",
-      "assets/Women SOS/Screenshot 2026-01-18 060413.png"
+      "assets/Women SOS/Screenshot 2026-01-18 060413.png",
+      "assets/Women SOS/Screenshot 2026-01-18 060429.png",
+      "assets/Women SOS/Screenshot 2026-01-18 060446.png",
+      "assets/Women SOS/Screenshot 2026-01-18 060516.png",
+      "assets/Women SOS/Screenshot 2026-01-18 060539.png",
+      "assets/Women SOS/Screenshot 2026-01-18 060554.png"
     ],
     changelog: [
       "Women SOS app project added to the showcase",
@@ -109,8 +113,8 @@ const APPS_DATA = [
     updatedDate: "Sep 08, 2026",
     size: "19.2 MB",
     minAndroid: "Android 8.0+ (Oreo)",
-    apkUrl: "https://github.com/Tanujdarokar",
-    githubUrl: "https://github.com/Tanujdarokar",
+    apkUrl: "",
+    githubUrl: "https://github.com/Tanujdarokar/talentmatchai",
     featured: true,
     description: "Talent Match AI connects people with opportunities using intelligent matching between skills, career interests, and job requirements. The app is built to help learners, recruiters, and skill seekers discover better-fit opportunities faster.",
     features: [
@@ -125,7 +129,13 @@ const APPS_DATA = [
       "assets/Talent Match AI/Screenshot 2026-07-08 102224.png",
       "assets/Talent Match AI/Screenshot 2026-07-08 102239.png",
       "assets/Talent Match AI/Screenshot 2026-07-08 102300.png",
-      "assets/Talent Match AI/Screenshot 2026-07-08 102314.png"
+      "assets/Talent Match AI/Screenshot 2026-07-08 102314.png",
+      "assets/Talent Match AI/Screenshot 2026-07-08 102332.png",
+      "assets/Talent Match AI/Screenshot 2026-07-08 102353.png",
+      "assets/Talent Match AI/Screenshot 2026-07-08 102413.png",
+      "assets/Talent Match AI/Screenshot 2026-07-08 102431.png",
+      "assets/Talent Match AI/Screenshot 2026-07-08 102610.png",
+      "assets/Talent Match AI/Screenshot 2026-07-08 102640.png"
     ],
     changelog: [
       "Talent Match AI project added to the showcase",
@@ -143,8 +153,7 @@ const APPS_DATA = [
     updatedDate: "Sep 08, 2026",
     size: "17.8 MB",
     minAndroid: "Android 8.0+ (Oreo)",
-    apkUrl: "https://github.com/Tanujdarokar",
-    githubUrl: "https://github.com/Tanujdarokar",
+    apkUrl: "",
     featured: false,
     description: "Interview Pro helps learners prepare for interviews with guided practice, structured question sets, and performance feedback. The app helps turn interview readiness into a repeatable daily practice habit.",
     features: [
@@ -155,11 +164,14 @@ const APPS_DATA = [
       "💼 Career readiness workflow"
     ],
     screenshots: [
-      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.05 AM (1).jpeg",
       "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.05 AM.jpeg",
-      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.06 AM (1).jpeg",
+      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.05 AM (1).jpeg",
       "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.06 AM.jpeg",
-      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.07 AM.jpeg"
+      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.06 AM (1).jpeg",
+      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.07 AM.jpeg",
+      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.08 AM.jpeg",
+      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.09 AM.jpeg",
+      "assets/Interview Pro/WhatsApp Image 2026-05-30 at 9.42.09 AM (1).jpeg"
     ],
     changelog: [
       "Interview Pro project added to the showcase",
@@ -170,30 +182,30 @@ const APPS_DATA = [
   {
     id: "login-signup-clone",
     name: "Login Signup Clone",
-    tagline: "A polished login and signup UI experience with responsive authentication screens.",
-    category: "Web",
-    icon: "assets/icons/ai-study-assist.svg",
+    tagline: "A polished login and signup interface with responsive screens and a clean user flow.",
+    category: "Frontend UI",
+    icon: "assets/screenshots/create_account.png",
     version: "v1.0.0",
     updatedDate: "Sep 11, 2026",
-    size: "Web App",
-    minAndroid: "Web App",
+    size: "Web Demo",
+    minAndroid: "Web UI",
     apkUrl: "",
     githubUrl: "https://github.com/Tanujdarokar/login_signup_clone",
     websiteUrl: "https://tanujdarokar.github.io/login_signup_clone/",
     featured: false,
-    description: "Login Signup Clone is a clean authentication UI project showcasing a responsive login and signup experience with modern web form structure, smooth visual hierarchy, and polished page styling for a public-facing landing experience.",
+    description: "Login Signup Clone is a clean frontend UI project showcasing a responsive login and signup interface with modern form structure, strong visual hierarchy, and polished styling for a public-facing landing experience.",
     features: [
-      "🔐 Login and signup experience",
-      "🌐 Responsive web authentication UI",
-      "💼 Modern form layout and visual polish",
-      "📱 Mobile-friendly design structure",
-      "⚙️ Frontend UI project for authentication workflows"
+      "🔐 Login and signup UI screens",
+      "📱 Responsive web login and signup UI",
+      "⚡ Clean state-driven form interactions",
+      "🎨 Frontend UI mockup for sign-in and sign-up screens"
     ],
-    screenshots: [],
+    screenshots: [
+      "assets/screenshots/create_account.png"
+    ],
     changelog: [
-      "Login Signup Clone project added to the showcase",
-      "Website project linked with GitHub Pages",
-      "Authentication UI clone project added to the app catalog"
+      "Login Signup Clone project added to the app catalog",
+      "Frontend UI mockup added to the app catalog"
     ]
   },
   {
@@ -201,13 +213,13 @@ const APPS_DATA = [
     name: "E-commerce",
     tagline: "A clean Flutter shopping experience with product browsing, categories, and order-ready screens.",
     category: "Shopping",
-    icon: "assets/icons/ai-study-assist.svg",
+    icon: "assets/E-commerce/Screenshot 2026-09-11 102231.png",
     version: "v1.0.0",
     updatedDate: "Sep 11, 2026",
     size: "Flutter App",
     minAndroid: "Android 8.0+",
-    apkUrl: "assets/E-commerce/Screenshot 2026-09-11 102231.png",
-    githubUrl: "https://github.com/Tanujdarokar",
+    apkUrl: "",
+    githubUrl: "https://github.com/Tanujdarokar/E-Commerce",
     featured: false,
     description: "E-commerce is a Flutter shopping UI experience showcasing product discovery, store categories, visual product cards, cart interactions, and polished commerce flows for a modern online shopping app.",
     features: [
@@ -236,13 +248,12 @@ const APPS_DATA = [
     name: "AI Face Assistant",
     tagline: "A face-first AI assistant experience for visual recognition, prompts, and smart guidance.",
     category: "AI",
-    icon: "assets/icons/ai-study-assist.svg",
+    icon: "assets/AI face Assistant/Screenshot 2026-09-11 105500.png",
     version: "v1.0.0",
     updatedDate: "Sep 11, 2026",
     size: "22.1 MB",
     minAndroid: "Android 8.0+ (Oreo)",
-    apkUrl: "https://github.com/Tanujdarokar/AI-Face-Assistant/releases/download/v1.0.0/AI-Face-Assistant-v1.0.0.apk",
-    githubUrl: "https://github.com/Tanujdarokar/AI-Face-Assistant",
+    apkUrl: "",
     featured: true,
     description: "AI Face Assistant is a visual AI experience built around face recognition, smart prompts, and interactive guidance for everyday personal assistant workflows. The app is designed to combine user-friendly face experiences with practical AI productivity and assistance features.",
     features: [
@@ -252,11 +263,18 @@ const APPS_DATA = [
       "💬 Guided conversational workflow",
       "🌎 Smart assistant experience for daily productivity"
     ],
-    screenshots: [],
+    screenshots: [
+      "assets/AI face Assistant/Screenshot 2026-09-11 105500.png",
+      "assets/AI face Assistant/Screenshot 2026-09-11 105531.png",
+      "assets/AI face Assistant/Screenshot 2026-09-11 105548.png",
+      "assets/AI face Assistant/Screenshot 2026-09-11 105614.png",
+      "assets/AI face Assistant/Screenshot 2026-09-11 105630.png",
+      "assets/AI face Assistant/Screenshot 2026-09-11 105711.png"
+    ],
     changelog: [
       "AI Face Assistant project added to the showcase",
-      "GitHub repository added to the project data",
-      "AI assistant app entry added with download-ready APK metadata"
+      "Project screenshots and feature summary added",
+      "No APK release is linked yet"
     ]
   },
   {
@@ -264,13 +282,13 @@ const APPS_DATA = [
     name: "Carbon Foot Print",
     tagline: "A carbon awareness app for tracking emissions, smart sustainability goals, and eco daily actions.",
     category: "Sustainability",
-    icon: "assets/icons/ai-study-assist.svg",
+    icon: "assets/carbon foot print/Screenshot 2026-09-11 111007.png",
     version: "v1.0.0",
     updatedDate: "Sep 11, 2026",
     size: "24.6 MB",
     minAndroid: "Android 8.0+ (Oreo)",
-    apkUrl: "https://github.com/Tanujdarokar/carbonFootPrint/releases/download/v1.0.0/carbonFootPrint-v1.0.0.apk",
-    githubUrl: "https://github.com/Tanujdarokar/carbonFootPrint",
+    apkUrl: "",
+    githubUrl: "https://github.com/Tanujdarokar/carbanFootPrint",
     featured: false,
     description: "Carbon Foot Print is a sustainability-focused mobile experience designed to help people understand their personal environmental impact through daily activity, emissions awareness, and greener lifestyle choices.",
     features: [
@@ -280,11 +298,20 @@ const APPS_DATA = [
       "📊 Daily impact summary and goal planning",
       "♻️ Green lifestyle and footprint improvement flow"
     ],
-    screenshots: [],
+    screenshots: [
+      "assets/carbon foot print/Screenshot 2026-09-11 111007.png",
+      "assets/carbon foot print/Screenshot 2026-09-11 111035.png",
+      "assets/carbon foot print/Screenshot 2026-09-11 111050.png",
+      "assets/carbon foot print/Screenshot 2026-09-11 111106.png",
+      "assets/carbon foot print/Screenshot 2026-09-11 111117.png",
+      "assets/carbon foot print/Screenshot 2026-09-11 111134.png",
+      "assets/carbon foot print/Screenshot 2026-09-11 111145.png",
+      "assets/carbon foot print/Screenshot 2026-09-11 111159.png"
+    ],
     changelog: [
       "Carbon Foot Print project added to the showcase",
       "Sustainability workflow and impact dashboard included",
-      "Carbon awareness project added with direct APK metadata"
+      "Carbon awareness project added; no APK release is linked yet"
     ]
   },
   {
@@ -324,7 +351,7 @@ const SITE_CONFIG = {
   authorBio: "Crafting fast, beautiful, and AI-powered mobile experiences with Flutter & Dart.",
   githubUrl: "https://github.com/Tanujdarokar",
   linkedinUrl: "https://www.linkedin.com/in/tanuj-darokar/",
-  twitterUrl: "https://x.com",
+  twitterUrl: "https://www.linkedin.com/in/tanuj-darokar/",
   email: "tanujdarokar@gmail.com",
   repoUrl: "https://github.com/Tanujdarokar"
 };

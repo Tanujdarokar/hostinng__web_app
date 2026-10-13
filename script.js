@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultsCountText = document.getElementById("results-count-text");
   const resetFiltersBtn = document.getElementById("reset-filters-btn");
   const statAppsCount = document.getElementById("stat-apps-count");
+  const statCategoriesCount = document.getElementById("stat-categories-count");
   const themeToggleBtn = document.getElementById("theme-toggle");
   const siteHeader = document.getElementById("site-header");
   const scrollProgressBar = document.getElementById("scroll-progress-bar");
@@ -49,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const guideCloseBtn = document.getElementById("guide-close-btn");
   const guideGotItBtn = document.getElementById("guide-got-it-btn");
   const installGuideBtn = document.getElementById("install-guide-btn");
-  const heroGuideBtn = document.getElementById("hero-guide-btn");
   const bannerGuideTrigger = document.getElementById("banner-guide-trigger");
   const footerGuideLink = document.getElementById("footer-guide-link");
 
@@ -61,12 +61,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toast Container
   const toastContainer = document.getElementById("toast-container");
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const headerNav = document.getElementById("header-nav");
+
+  // Sync Dynamic Stats Count & Config
+  if (typeof APPS_DATA !== "undefined" && statAppsCount) {
+    statAppsCount.dataset.target = APPS_DATA.length;
+    statAppsCount.textContent = APPS_DATA.length;
+  }
+  if (typeof APPS_DATA !== "undefined" && statCategoriesCount) {
+    const categoryCount = new Set(APPS_DATA.map((app) => app.category || "General")).size;
+    statCategoriesCount.dataset.target = categoryCount;
+    statCategoriesCount.textContent = categoryCount;
+  }
+
+  const yearEl = document.getElementById("current-year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
   // Repositories Data
   const REPOSITORIES = [
-    { name: "AI-Study-Assist", description: "Intelligent Flutter learning companion for instant topic explanations, summaries & flashcards.", language: "Dart", color: "teal", license: "MIT License", updated: "Updated recently", stars: 24 },
-    { name: "AI-Face-Assistant", description: "Visual face-first AI assistant experience with interactive recognition and smart guidance.", language: "Dart", color: "teal", license: "MIT License", updated: "Updated last week", stars: 19 },
-    { name: "carbonFootPrint", description: "A carbon awareness challenge app for tracking emissions and eco daily actions.", language: "Dart", color: "teal", license: "MIT License", updated: "Updated last month", stars: 15 },
+    { name: "carbanFootPrint", description: "A carbon awareness challenge app for tracking emissions and eco daily actions.", language: "Dart", color: "teal", license: "MIT License", updated: "Updated last month", stars: 15 },
     { name: "smart_management_web", description: "Modern business operations management and visibility web dashboard.", language: "JavaScript", color: "yellow", license: "MIT License", updated: "Updated last month", stars: 12 },
     { name: "tanuj_portfolio", description: "Clean modern portfolio showcase website with smooth responsive UI.", language: "HTML", color: "orange", license: "MIT License", updated: "Updated recently", stars: 31 },
     { name: "skillbridgeai", description: "Application for students to bridge skill gaps and connect with industry opportunities.", language: "Dart", color: "teal", license: "MIT License", updated: "Updated on Jun 25", stars: 18 },
@@ -127,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const dx = mouseX - p.x;
         const dy = mouseY - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) {
+        if (dist > 0 && dist < 150) {
           p.x += (dx / dist) * 0.3;
           p.y += (dy / dist) * 0.3;
         }
@@ -147,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animateParticles();
   };
 
-  initAmbientCanvas();
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) initAmbientCanvas();
 
   /* --------------------------------------------------------------------------
      2. 3D Perspective Card Tilt Physics
@@ -335,8 +351,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const q = searchQuery.toLowerCase();
       const nameMatch = app.name.toLowerCase().includes(q);
-      const taglineMatch = app.tagline.toLowerCase().includes(q);
-      const categoryMatch = app.category.toLowerCase().includes(q);
+      const taglineMatch = (app.tagline || "").toLowerCase().includes(q);
+      const categoryMatch = (app.category || "").toLowerCase().includes(q);
       const descMatch = (app.description || "").toLowerCase().includes(q);
       const featuresMatch = (app.features || []).some((f) => f.toLowerCase().includes(q));
 
@@ -357,7 +373,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ? `<div class="card-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>`
       : "";
 
-    const downloadHtml = app.apkUrl
+    const hasApk = app.apkUrl && app.apkUrl !== "#" && app.apkUrl.trim() !== "";
+    const downloadHtml = hasApk
       ? `
       <a 
         href="${app.apkUrl}" 
@@ -388,16 +405,31 @@ document.addEventListener("DOMContentLoaded", () => {
     `
       : "";
 
+    const githubHtml = (!hasApk && !app.websiteUrl && app.githubUrl)
+      ? `
+      <a 
+        href="${app.githubUrl}" 
+        class="btn-secondary card-github-trigger" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        title="View Source Code on GitHub"
+      >
+        <i class="fa-brands fa-github"></i>
+        <span>Source</span>
+      </a>
+    `
+      : "";
+
     card.innerHTML = `
       ${featuredBadgeHtml}
       <div>
         <div class="card-header-row">
           <img 
-            src="${app.icon}" 
+            src="${app.icon || 'assets/icons/ai-study-assist.svg'}" 
             alt="${app.name} icon" 
             class="card-app-icon" 
             loading="lazy"
-            onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=160&auto=format&fit=crop&q=80'"
+            onerror="this.onerror=null;this.src='assets/icons/ai-study-assist.svg'"
           >
           <div class="card-title-group">
             <span class="card-category">${app.category}</span>
@@ -405,19 +437,21 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
 
-        <p class="card-tagline">${app.tagline}</p>
+        <p class="card-tagline">${app.tagline || ''}</p>
 
         <div class="card-specs">
-          <span class="spec-chip"><i class="fa-solid fa-tag"></i> ${app.version}</span>
-          <span class="spec-chip"><i class="fa-solid fa-hard-drive"></i> ${app.size}</span>
-          <span class="spec-chip"><i class="fa-brands fa-android"></i> ${app.minAndroid}</span>
+          <span class="spec-chip"><i class="fa-solid fa-tag"></i> ${app.version || 'v1.0.0'}</span>
+          <span class="spec-chip"><i class="fa-solid fa-hard-drive"></i> ${app.size || 'Mobile'}</span>
+          <span class="spec-chip"><i class="fa-brands fa-android"></i> ${app.minAndroid || 'Android 8.0+'}</span>
         </div>
       </div>
 
       <div class="card-actions">
         ${downloadHtml}
         ${websiteHtml}
+        ${githubHtml}
         <button 
+          type="button"
           class="btn-secondary btn-icon-only card-view-details" 
           title="View Screenshots & Changelog"
           aria-label="View Details"
@@ -436,14 +470,14 @@ document.addEventListener("DOMContentLoaded", () => {
         handleDownloadClick(app.name, app.apkUrl);
         return;
       }
-      if (e.target.closest(".card-website-trigger")) {
+      if (e.target.closest(".card-website-trigger") || e.target.closest(".card-github-trigger")) {
         return;
       }
       openAppModal(app);
     });
 
     card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
+      if ((e.key === "Enter" || e.key === " ") && e.target === card) {
         e.preventDefault();
         openAppModal(app);
       }
@@ -521,7 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Global Keyboard Shortcuts
   window.addEventListener("keydown", (e) => {
-    // Ctrl+K or Cmd+K or "/" to search
+    // Ctrl+K or Cmd+K to search
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
       if (searchInput) {
@@ -564,14 +598,14 @@ document.addEventListener("DOMContentLoaded", () => {
     currentScreenshotIdx = 0;
 
     document.getElementById("modal-app-name").textContent = app.name;
-    document.getElementById("modal-app-tagline").textContent = app.tagline;
-    document.getElementById("modal-app-category").textContent = app.category;
-    document.getElementById("modal-app-version").textContent = app.version;
-    document.getElementById("modal-app-description").textContent = app.description || app.tagline;
+    document.getElementById("modal-app-tagline").textContent = app.tagline || "";
+    document.getElementById("modal-app-category").textContent = app.category || "General";
+    document.getElementById("modal-app-version").textContent = app.version || "v1.0.0";
+    document.getElementById("modal-app-description").textContent = app.description || app.tagline || "";
 
     const modalIcon = document.getElementById("modal-app-icon");
     if (modalIcon) {
-      modalIcon.src = app.icon;
+      modalIcon.src = app.icon || "assets/icons/ai-study-assist.svg";
       modalIcon.alt = `${app.name} icon`;
     }
 
@@ -582,8 +616,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalFooterWebsiteBtn = document.getElementById("modal-footer-website-btn");
     const modalGithubBtn = document.getElementById("modal-github-btn");
 
+    const hasApk = app.apkUrl && app.apkUrl !== "#" && app.apkUrl.trim() !== "";
+
     if (modalDownloadBtn) {
-      if (app.apkUrl) {
+      if (hasApk) {
         modalDownloadBtn.href = app.apkUrl;
         modalDownloadBtn.classList.remove("hidden");
         modalDownloadBtn.onclick = () => handleDownloadClick(app.name, app.apkUrl);
@@ -593,7 +629,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (modalFooterDownloadBtn) {
-      if (app.apkUrl) {
+      if (hasApk) {
         modalFooterDownloadBtn.href = app.apkUrl;
         modalFooterDownloadBtn.classList.remove("hidden");
         modalFooterDownloadBtn.onclick = () => handleDownloadClick(app.name, app.apkUrl);
@@ -602,7 +638,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (modalDownloadSize) modalDownloadSize.textContent = app.size || "";
+    if (modalDownloadSize) {
+      modalDownloadSize.textContent = app.size || "";
+      modalDownloadSize.classList.toggle("hidden", !hasApk);
+    }
 
     if (modalWebsiteBtn) {
       if (app.websiteUrl) {
@@ -632,7 +671,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.getElementById("modal-meta-date").textContent = app.updatedDate || "Recent";
-    document.getElementById("modal-meta-size").textContent = app.size || "Unknown";
+    document.getElementById("modal-meta-size").textContent = app.size || "Standard";
     document.getElementById("modal-meta-android").textContent = app.minAndroid || "Android 8.0+";
 
     // Screenshots Gallery
@@ -651,7 +690,7 @@ document.addEventListener("DOMContentLoaded", () => {
               src="${imgUrl}" 
               alt="${app.name} screenshot ${idx + 1}" 
               loading="lazy"
-              onerror="this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80'"
+              onerror="this.onerror=null;this.src='assets/screenshots/splash.png'"
             >
             <div class="screenshot-hover-overlay">
               <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -729,7 +768,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (installGuideBtn) installGuideBtn.addEventListener("click", openGuideModal);
-  if (heroGuideBtn) heroGuideBtn.addEventListener("click", openGuideModal);
   if (bannerGuideTrigger) bannerGuideTrigger.addEventListener("click", openGuideModal);
   if (footerGuideLink) footerGuideLink.addEventListener("click", openGuideModal);
   if (guideCloseBtn) guideCloseBtn.addEventListener("click", closeGuideModal);
@@ -782,6 +820,53 @@ document.addEventListener("DOMContentLoaded", () => {
         if (toast.parentNode) toast.parentNode.removeChild(toast);
       }, 350);
     }, 3800);
+  };
+
+  const initCookieConsent = () => {
+    const banner = document.getElementById("cookie-banner");
+    const acceptButton = document.getElementById("cookie-accept-btn");
+    const rejectButton = document.getElementById("cookie-reject-btn");
+    const settingsButton = document.getElementById("cookie-settings-trigger");
+    if (!banner || !acceptButton || !rejectButton) return;
+
+    const consentKey = "appsphere_cookie_consent";
+    const readConsent = () => {
+      try {
+        const consent = JSON.parse(localStorage.getItem(consentKey) || "null");
+        return consent && typeof consent.analytics === "boolean" ? consent : null;
+      } catch (error) {
+        console.error("Unable to read privacy preferences.", error);
+        return null;
+      }
+    };
+    const savedConsent = readConsent();
+    const openPreferences = new URLSearchParams(window.location.search).get("cookies") === "1";
+    banner.classList.toggle("hidden", savedConsent !== null && !openPreferences);
+
+    window.AppSphereConsent = {
+      hasAnalyticsConsent: () => readConsent()?.analytics === true
+    };
+
+    const saveConsent = (analytics) => {
+      try {
+        localStorage.setItem(consentKey, JSON.stringify({ analytics, savedAt: new Date().toISOString() }));
+      } catch (error) {
+        console.error("Unable to save privacy preferences.", error);
+        showToast("Your privacy choice could not be saved in this browser.", "error");
+        return;
+      }
+      banner.classList.add("hidden");
+    };
+
+    acceptButton.addEventListener("click", () => saveConsent(true));
+    rejectButton.addEventListener("click", () => saveConsent(false));
+    if (settingsButton) {
+      settingsButton.addEventListener("click", () => {
+        banner.classList.remove("hidden");
+        acceptButton.focus();
+      });
+    }
+    if (openPreferences) acceptButton.focus();
   };
 
   const handleDownloadClick = (appName, apkUrl) => {
@@ -908,16 +993,46 @@ document.addEventListener("DOMContentLoaded", () => {
     if (authForms.login) {
       authForms.login.addEventListener("submit", (e) => {
         e.preventDefault();
-        showToast("Signed in successfully to AppSphere!", "success");
+        if (authForms.login.querySelector('[name="website"]').value) {
+          showToast("Submission blocked.", "error");
+          return;
+        }
+        showToast("This is a UI demo only; no account was created and no data was sent.", "info");
       });
     }
 
     if (authForms.register) {
       authForms.register.addEventListener("submit", (e) => {
         e.preventDefault();
-        showToast("Account created successfully! Welcome aboard.", "success");
+        if (authForms.register.querySelector('[name="website"]').value) {
+          showToast("Submission blocked.", "error");
+          return;
+        }
+        showToast("This is a UI demo only; no account was created and no data was sent.", "info");
       });
     }
+  }
+
+  if (mobileMenuToggle && headerNav) {
+    const closeMobileMenu = () => {
+      headerNav.classList.remove("is-open");
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
+      mobileMenuToggle.setAttribute("aria-label", "Open main navigation");
+      mobileMenuToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    };
+
+    mobileMenuToggle.addEventListener("click", () => {
+      const isOpen = mobileMenuToggle.getAttribute("aria-expanded") !== "true";
+      headerNav.classList.toggle("is-open", isOpen);
+      mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileMenuToggle.setAttribute("aria-label", isOpen ? "Close main navigation" : "Open main navigation");
+      mobileMenuToggle.innerHTML = `<i class="fa-solid fa-${isOpen ? "xmark" : "bars"}" aria-hidden="true"></i>`;
+    });
+
+    headerNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMobileMenu));
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMobileMenu();
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -956,13 +1071,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Set stats count
-  if (statAppsCount && typeof APPS_DATA !== "undefined") {
-    statAppsCount.dataset.target = APPS_DATA.length;
-    statAppsCount.textContent = APPS_DATA.length;
-  }
-
   // Initial renders
+  initCookieConsent();
   renderRepositories();
   renderCategoryTabs();
   filterAndRenderApps();
