@@ -955,63 +955,6 @@ document.addEventListener("DOMContentLoaded", () => {
     repositorySearchInput.addEventListener("input", (e) => renderRepositories(e.target.value));
   }
 
-  /* --------------------------------------------------------------------------
-     13. Auth Switcher (Login / Register Stage)
-     -------------------------------------------------------------------------- */
-  const authSwitch = document.getElementById("auth-switch");
-  const authSwitchSlider = document.getElementById("auth-switch-slider");
-  const authSwitchButtons = Array.from(document.querySelectorAll(".auth-switch-btn"));
-  const authForms = {
-    login: document.getElementById("login-form"),
-    register: document.getElementById("register-form")
-  };
-
-  if (authSwitch && authSwitchSlider && authSwitchButtons.length) {
-    const setAuthMode = (mode) => {
-      const isRegister = mode === "register";
-      authSwitchButtons.forEach((btn) => {
-        const isActive = btn.dataset.authMode === mode;
-        btn.classList.toggle("active", isActive);
-        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-      });
-
-      if (isRegister) {
-        authSwitchSlider.style.transform = "translateX(100%)";
-        if (authForms.login) authForms.login.classList.remove("active");
-        if (authForms.register) authForms.register.classList.add("active");
-      } else {
-        authSwitchSlider.style.transform = "translateX(0%)";
-        if (authForms.register) authForms.register.classList.remove("active");
-        if (authForms.login) authForms.login.classList.add("active");
-      }
-    };
-
-    authSwitchButtons.forEach((btn) => {
-      btn.addEventListener("click", () => setAuthMode(btn.dataset.authMode));
-    });
-
-    if (authForms.login) {
-      authForms.login.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (authForms.login.querySelector('[name="website"]').value) {
-          showToast("Submission blocked.", "error");
-          return;
-        }
-        showToast("This is a UI demo only; no account was created and no data was sent.", "info");
-      });
-    }
-
-    if (authForms.register) {
-      authForms.register.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (authForms.register.querySelector('[name="website"]').value) {
-          showToast("Submission blocked.", "error");
-          return;
-        }
-        showToast("This is a UI demo only; no account was created and no data was sent.", "info");
-      });
-    }
-  }
 
   if (mobileMenuToggle && headerNav) {
     const closeMobileMenu = () => {

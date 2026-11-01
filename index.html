@@ -77,7 +77,6 @@
         <a href="#hero" class="nav-link">Overview</a>
         <a href="#apps-catalog" class="nav-link">Apps Catalog</a>
         <a href="#repositories-section" class="nav-link">Repositories</a>
-        <a href="#auth-panel" class="nav-link">Account</a>
       </nav>
 
       <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-controls="header-nav"
@@ -371,148 +370,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Login / Register Auth Panel -->
-    <section class="auth-section" id="auth-panel">
-      <div class="auth-container reveal-on-scroll tilt-card">
-        <div class="auth-intro">
-          <span class="auth-kicker"><i class="fa-solid fa-sparkles"></i> Member Access</span>
-          <h2 class="auth-title">Preview the account interface</h2>
-          <p class="auth-copy">
-            These login and registration forms are visual demos only. There is no account service: submissions stay in
-            this browser and are not sent or saved.
-          </p>
-
-          <div class="auth-feature-list">
-            <div class="auth-feature-item">
-              <i class="fa-solid fa-bolt"></i>
-              <span>Form validation demo</span>
-            </div>
-            <div class="auth-feature-item">
-              <i class="fa-solid fa-shield-heart"></i>
-              <span>No account service</span>
-            </div>
-            <div class="auth-feature-item">
-              <i class="fa-solid fa-rocket"></i>
-              <span>Local UI preview</span>
-            </div>
-            <div class="auth-feature-item">
-              <i class="fa-solid fa-code-commit"></i>
-              <span>No data is submitted</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="auth-card">
-          <div class="auth-card-head">
-            <div class="auth-switch" id="auth-switch">
-              <span class="auth-switch-slider" id="auth-switch-slider"></span>
-              <button type="button" class="auth-switch-btn active" id="login-switch" data-auth-mode="login">
-                <span>Login</span>
-              </button>
-              <button type="button" class="auth-switch-btn" id="register-switch" data-auth-mode="register">
-                <span>Register</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="auth-form-stage">
-            <form class="auth-form active" id="login-form" aria-label="Demo login form">
-              <div class="form-trap" aria-hidden="true">
-                <label for="login-website">Leave this field empty</label>
-                <input type="text" id="login-website" name="website" tabindex="-1" autocomplete="off">
-              </div>
-              <div class="auth-form-title-row">
-                <h3 class="auth-form-title">Login</h3>
-                <span class="auth-small-label">Welcome back</span>
-              </div>
-
-              <div class="auth-field-group">
-                <label class="auth-label" for="login-email">Email address</label>
-                <div class="auth-input-wrap">
-                  <i class="fa-solid fa-envelope"></i>
-                  <input type="email" id="login-email" class="auth-input" placeholder="name@example.com" required
-                    autocomplete="username" maxlength="254">
-                </div>
-              </div>
-
-              <div class="auth-field-group">
-                <label class="auth-label" for="login-password">Password</label>
-                <div class="auth-input-wrap">
-                  <i class="fa-solid fa-lock"></i>
-                  <input type="password" id="login-password" class="auth-input" placeholder="At least 8 characters"
-                    required minlength="8" maxlength="128" autocomplete="current-password">
-                </div>
-              </div>
-
-              <div class="auth-options-row">
-                <label class="auth-check">
-                  <input type="checkbox">
-                  <span>Remember me</span>
-                </label>
-                <a href="mailto:tanujdarokar@gmail.com?subject=AppSphere%20account%20demo" class="auth-link">Contact</a>
-              </div>
-
-              <button type="submit" class="btn-primary auth-submit-btn">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                <span>Login to Dashboard</span>
-              </button>
-            </form>
-
-            <form class="auth-form" id="register-form" aria-label="Demo registration form">
-              <div class="form-trap" aria-hidden="true">
-                <label for="register-website">Leave this field empty</label>
-                <input type="text" id="register-website" name="website" tabindex="-1" autocomplete="off">
-              </div>
-              <div class="auth-form-title-row">
-                <h3 class="auth-form-title">Create account</h3>
-                <span class="auth-small-label">Start free</span>
-              </div>
-
-              <div class="auth-field-group">
-                <label class="auth-label" for="register-name">Full name</label>
-                <div class="auth-input-wrap">
-                  <i class="fa-solid fa-user"></i>
-                  <input type="text" id="register-name" class="auth-input" placeholder="Your name" required
-                    minlength="2" maxlength="80" autocomplete="name">
-                </div>
-              </div>
-
-              <div class="auth-field-group">
-                <label class="auth-label" for="register-email">Email address</label>
-                <div class="auth-input-wrap">
-                  <i class="fa-solid fa-envelope"></i>
-                  <input type="email" id="register-email" class="auth-input" placeholder="name@example.com" required
-                    autocomplete="email" maxlength="254">
-                </div>
-              </div>
-
-              <div class="auth-field-group">
-                <label class="auth-label" for="register-password">Password</label>
-                <div class="auth-input-wrap">
-                  <i class="fa-solid fa-lock"></i>
-                  <input type="password" id="register-password" class="auth-input" placeholder="At least 8 characters"
-                    required minlength="8" maxlength="128" autocomplete="new-password">
-                </div>
-              </div>
-
-              <div class="auth-options-row">
-                <label class="auth-check">
-                  <input type="checkbox" required>
-                  <span>I agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy
-                      Policy</a></span>
-                </label>
-              </div>
-
-              <button type="submit" class="btn-primary auth-submit-btn">
-                <i class="fa-solid fa-user-plus"></i>
-                <span>Create Account</span>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- App Detail Modal Window with 3D Spring Entrance -->
@@ -786,7 +643,6 @@
             <li><a href="#hero">Home</a></li>
             <li><a href="#apps-catalog">All Apps</a></li>
             <li><a href="#repositories-section">Repositories</a></li>
-            <li><a href="#auth-panel">Member Portal</a></li>
             <li><a href="#install-guide-btn" id="footer-guide-link">Installation Guide</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms &amp; Conditions</a></li>
