@@ -220,6 +220,7 @@ const APPS_DATA = [
     minAndroid: "Android 8.0+",
     apkUrl: "",
     githubUrl: "https://github.com/Tanujdarokar/E-Commerce",
+    websiteUrl: "https://tanujdarokar.github.io/VK_kirana/",
     featured: false,
     description: "E-commerce is a Flutter shopping UI experience showcasing product discovery, store categories, visual product cards, cart interactions, and polished commerce flows for a modern online shopping app.",
     features: [
@@ -312,6 +313,34 @@ const APPS_DATA = [
       "Carbon Foot Print project added to the showcase",
       "Sustainability workflow and impact dashboard included",
       "Carbon awareness project added; no APK release is linked yet"
+    ]
+  },
+  {
+    id: "job-connect",
+    name: "Job Connect",
+    tagline: "A modern job discovery and hiring platform connecting candidates with opportunities.",
+    category: "Web",
+    icon: "assets/icons/ai-study-assist.svg",
+    version: "v1.0.0",
+    updatedDate: "Nov 03, 2026",
+    size: "Web App",
+    minAndroid: "Web App",
+    apkUrl: "",
+    websiteUrl: "https://tanujdarokar.github.io/job-connect/",
+    featured: true,
+    description: "Job Connect is a polished job platform experience focused on helping users discover opportunities, explore roles, and connect with employers more efficiently. The project showcases a modern, responsive workflow for job search, career discovery, and hiring visibility.",
+    features: [
+      "💼 Job discovery and opportunity browsing",
+      "🌐 Clean responsive web experience for hiring workflows",
+      "📄 Career-focused landing layouts and candidate discovery UI",
+      "🔎 Modern search-first experience for relevant roles",
+      "📈 Professional recruitment and talent visibility flow"
+    ],
+    screenshots: [],
+    changelog: [
+      "Job Connect website added to the project portfolio",
+      "New web-based job platform link published",
+      "Responsive job discovery showcase added to the catalog"
     ]
   },
   {
